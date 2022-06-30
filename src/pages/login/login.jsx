@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./login.css"
 
 function Login() {
-    
-    const [user, setUser] = useState(null);
 
     const [textError, setTextError] = useState("");
 
-    const handleLogin = ()=>{
-        setUser(true);
+    const handleLogin = () => {
         setTextError("Error");
     };
-
-    useEffect(() => {
-        localStorage.setItem("user", user);
-    }, [user]);
 
     return (
         <div className='containerLogin'>

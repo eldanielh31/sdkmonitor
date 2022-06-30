@@ -1,39 +1,24 @@
-import { useEffect, useState } from "react";
 import {
   Routes,
   Route,
-  Navigate,
+  BrowserRouter,
 } from "react-router-dom";
 import './App.css';
-import Home from "./pages/home/home";
-import Login from "./pages/login/login";
+import { Home, Login, Cpu, Mac, Memory } from "./pages/indexPages"
 
 function App() {
 
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const u = localStorage.getItem("user");
-    u && JSON.parse(u) ? setUser(true) : setUser(false);
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem("user", user);
-  }, [user]);
-
   return (
+    <BrowserRouter>
       <Routes>
-        
-        {!user && 
-        <Route path="/login" element={<Login/>}/>
-        }
-        {user && 
-        <Route path="/" element={<Home />} /> 
-        }
-
-        <Route path="*" element={<Navigate to = {user ? "/" : "/login"} />} />
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/cpu" element = {<Cpu/>} />
+        <Route path="/memory" element={<Memory />} />
+        <Route path="/mac" element={<Mac />} />
+        {/* <Route path="*" element={<Navigate to={user ? "/" : "/login"} />} /> */}
       </Routes>
+    </BrowserRouter>
   );
 }
 
