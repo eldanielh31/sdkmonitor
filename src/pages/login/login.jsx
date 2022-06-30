@@ -19,7 +19,7 @@ function Login() {
     return (
         <div className='containerLogin'>
             <div className='wrapperLogin'>
-                <h1 className="titleLogin">Inicar sesion</h1>
+                <h1 className="titleLogin">Login</h1>
                 <form className="formLogin">
                     <div className="groupLogin">
                         <input type="text" className='inputLogin' required />
