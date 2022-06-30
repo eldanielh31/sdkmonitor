@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./login.css"
-import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const navigate = useNavigate();
+    
+    const [user, setUser] = useState(null);
+
+    const [textError, setTextError] = useState("");
 
     const handleLogin = ()=>{
-        navigate("/");
+        setUser(true);
+        setTextError("Error");
     };
+
+    useEffect(() => {
+        localStorage.setItem("user", user);
+    }, [user]);
 
     return (
         <div className='containerLogin'>
@@ -22,7 +29,7 @@ function Login() {
                     </div>
 
                     <div className="groupLogin">
-                        <input type="password" className='inputLogin' required />
+                        <input type="text" className='inputLogin' required />
                         <span className="highlightLogin"></span>
                         <span className="barLogin"></span>
                         <label className='labelLogin'>User</label>
@@ -35,6 +42,8 @@ function Login() {
                         <label className='labelLogin'>Password</label>
                     </div>
 
+                    <span className='errorLogin'> {textError} </span>
+
                     <div className="groupLogin">
                         <button className="button-57" onClick={handleLogin}>
                             <span className="text"> LOGIN </span>
@@ -45,7 +54,7 @@ function Login() {
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;
