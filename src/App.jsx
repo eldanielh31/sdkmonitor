@@ -5,13 +5,9 @@ import {
 } from "react-router-dom";
 import './App.css';
 import { Home, Login, Cpu, Mac, Memory } from "./pages/indexPages"
-import Sidebar from "./Components/Sidebar";
 
 function App() {
   return (<div className="App">
-    
-    <Sidebar />
-    
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
