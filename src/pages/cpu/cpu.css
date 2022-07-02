@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
+.containerTopCpu{
+    flex: 2;
+    /* padding: 0px 0px 20px 10px; */
+}
+.titleCPU{
+    font-family: 'Bai Jamjuree', sans-serif;
+    padding-left: 2em;
+}
+
+.containerCPU{
+    margin: 0em 1em 0em 1em;
+}
