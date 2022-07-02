@@ -24,7 +24,7 @@ class pv_vport:
 class pv_l2_entry_specs:
     def __init__(self, mac, vlan, port):
         self.mac = mac
-        self.vlan_number = vlan
+        self.vlan_number     = vlan
         self.vport = pv_vport(port)
         self.precedence_dst_port = 5
         self.is_multicast = False
