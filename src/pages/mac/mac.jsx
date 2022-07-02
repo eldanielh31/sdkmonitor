@@ -1,8 +1,15 @@
 import React from 'react'
+import Sidebar from '../../components/Sidebar'
+import "./mac.css"
 
 function Mac() {
   return (
-    <div>Mac</div>
+    <div className='pagueMAC'>
+      <Sidebar />
+      <div className='containerMAC'>
+        MAC
+      </div>
+    </div>
   )
 }
 

@@ -1,0 +1,10 @@
+.pagueMEMORY {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.containerMEMORY {
+    flex: 1;
+    margin: 0em 1em 0em 1em;
+}
