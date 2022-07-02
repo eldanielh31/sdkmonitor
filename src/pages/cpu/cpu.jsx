@@ -26,9 +26,6 @@ function Cpu() {
           <YAxis />
         </LineChart>
       </ResponsiveContainer>;
-
-
-
     </div>
   )
 }
