@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cpu() {
   return (
-    <div>cpu</div>
+    <div>Cpu</div>
   )
 }
 

@@ -5,10 +5,13 @@ import {
 } from "react-router-dom";
 import './App.css';
 import { Home, Login, Cpu, Mac, Memory } from "./pages/indexPages"
+import Sidebar from "./Components/Sidebar";
 
 function App() {
-
-  return (
+  return (<div className="App">
+    
+    <Sidebar />
+    
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -19,6 +22,7 @@ function App() {
         {/* <Route path="*" element={<Navigate to={user ? "/" : "/login"} />} /> */}
       </Routes>
     </BrowserRouter>
+    </div> 
   );
 }
 
