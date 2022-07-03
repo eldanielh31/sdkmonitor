@@ -5,6 +5,7 @@
     flex-direction: row;
 }
 .containerMEMORY {
+    width: 85%;
     flex: 1;
     margin: 0em 1em 0em 1em;
 }
