@@ -16,3 +16,4 @@ class CPUView(View):
 class MemoryView(View):
     def get(self, request):
         return JsonResponse( {"memory" : SystemUsage.getMemoryPercent()} )
+
