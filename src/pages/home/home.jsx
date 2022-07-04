@@ -1,6 +1,5 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
-import AddReactionIcon from '@mui/icons-material/AddReaction';
 import "./home.css"
 
 function Home() {
