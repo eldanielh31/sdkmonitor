@@ -25,7 +25,6 @@ export const SidebarData = [
         icon:<DesktopWindowsIcon />,
         link:"/mac"
     }
-
 ]
 
 

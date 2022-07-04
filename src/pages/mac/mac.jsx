@@ -4,7 +4,7 @@ import "./mac.css"
 
 function Mac() {
   return (
-    <div className='pagueMAC'>
+    <div className='pageMAC'>
       <Sidebar />
       <div className='containerMAC'>
         MAC
