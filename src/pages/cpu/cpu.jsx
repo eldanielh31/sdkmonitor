@@ -14,7 +14,7 @@ function Cpu() {
   ];
 
   return (
-    <div className='pagueCPU'>
+    <div className='pageCPU'>
       <Sidebar/>
       <div className='containerCPU'>
         <div className='containerTopCpu'>
