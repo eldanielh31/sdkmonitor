@@ -9,3 +9,4 @@ class SystemUsage:
 
     def getMemoryPercent():
        return psutil.virtual_memory().percent
+
