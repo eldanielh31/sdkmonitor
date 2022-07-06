@@ -9,9 +9,7 @@
 }
 
 .containerCPU{
-    flex: 1;
     margin: 0em 1em 0em 1em;
-    width: 85%;
 }
 
 .pageCPU {
@@ -19,4 +17,8 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
+}
+
+.containerChart{
+    width: 85vw;
 }
