@@ -1,10 +1,7 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import "./mac.css"
-// Para React-Table
-import { useTable } from "react-table";
-import useRows from "./Hooks/useRows";
-import useColumns from "./Hooks/useColumns";
+
 // Para MUI
 import { DataGrid } from '@mui/x-data-grid';
 
@@ -92,81 +89,7 @@ function DataTable() {
   );
 }
 
-// React Table
-// Creamos la tabla, desde cero, con un mapeo, haciendo el llamado a los diferentes Hooks
-function TableMac() {
-  const columns = useColumns();
-          const data = useRows();
-          const table = useTable({ columns, data });
 
-          const {
-            getTableProps,
-            getTableBodyProps,
-            headerGroups,
-            rows,
-            prepareRow
-          } = table;
-
-          return (
-            <div className="container">
-              {/* Añadimos las propiedades a nuestra tabla nativa */}
-              <table {...getTableProps()}>
-                <thead>
-                  {
-                    // Recorremos las columnas
-                    headerGroups.map((headerGroup) => (
-                      // Añadimos las propiedades al conjunto de columnas
-                      <tr {...headerGroup.getHeaderGroupProps()}>
-                        {
-                          // Recorremos cada columna del conjunto para acceder a su información
-                          headerGroup.headers.map((column) => (
-                            // Añadimos las propiedades a cada celda de la cabecera
-                            <th {...column.getHeaderProps()}>
-                              {
-                                // Pintamos el título de nuestra columna (propiedad "Header")
-                                column.render("Header")
-                              }
-                            </th>
-                          ))
-                        }
-                      </tr>
-                    ))
-                  }
-                </thead>
-                {/* Añadimos las propiedades al cuerpo de la tabla */}
-                <tbody {...getTableBodyProps()}>
-                  {
-                    // Recorremos las filas
-                    rows.map((row) => {
-                      // Llamamos a la función que prepara la fila previo renderizado
-                      prepareRow(row);
-                      return (
-                        // Añadimos las propiedades a la fila
-                        <tr {...row.getRowProps()}>
-                          {
-                            // Recorremos cada celda de la fila
-                            row.cells.map((cell) => {
-                              // Añadimos las propiedades a cada celda de la fila
-                              return (
-                                <td {...cell.getCellProps()}>
-                                  {
-                                    // Pintamos el contenido de la celda
-                                    cell.render("Cell")
-                                  }
-                                </td>
-                              );
-                            })
-                          }
-                        </tr>
-                      );
-                    })
-                  }
-                </tbody>
-              </table>
-            </div>
-          );
-        
-}
 
 function Mac() {
   return (
@@ -176,7 +99,6 @@ function Mac() {
         MAC 
         {//cambios
         }
-        {TableMac()}
         {DataTable()}
         
 
