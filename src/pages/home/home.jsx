@@ -4,7 +4,7 @@ import "./home.css"
 
 function Home() {
   return (
-    <div className='pagueHOME'>
+    <div className='pageHOME'>
       <Sidebar />
       <div className='containerHOME'>
         Home

@@ -4,7 +4,7 @@ import "./memory.css"
 
 function Memory() {
   return (
-    <div className='pagueMEMORY'>
+    <div className='pageMEMORY'>
       <Sidebar />
       <div className='containerMEMORY'>
         MEMORY
