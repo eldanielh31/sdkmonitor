@@ -6,8 +6,8 @@ import { publicRequest } from '../../requestMethods';
 
 function Cpu() {
 
-  const [valuesUsage, setValuesUsage] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  const [times, setTimes] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [valuesUsage, setValuesUsage] = useState(Array.apply(null, Array(10)).map(function () { return 0 }));
+  const [times, setTimes] = useState(Array.apply(null, Array(10)).map(function () { return 0 }));
   const [seconds, setSeconds] = useState(0);
 
   const data = [
@@ -45,6 +45,7 @@ function Cpu() {
   useEffect(() => {
     const interval = setInterval(() => {
       //LOOP EVERY SECOND
+      console.log(valuesUsage)
       setTimes(putNewValue(seconds, times))
       //getCPU()
       setValuesUsage(putNewValue(Math.floor(Math.random() * 100) + 1, valuesUsage))
