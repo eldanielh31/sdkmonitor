@@ -1,59 +1,40 @@
-import React, { useEffect, useState } from 'react';
 import "./cpu.css";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import Sidebar from "../../components/Sidebar"
-import { publicRequest } from '../../requestMethods';
+import { format, parseISO, subDays } from "date-fns";
+import {
+  ResponsiveContainer,
+  AreaChart,
+  XAxis,
+  YAxis,
+  Area,
+  Tooltip,
+  CartesianGrid,
+} from "recharts";
+
+function CustomTooltip({ active, payload, label }) {
+  if (active) {
+    return (
+      <div className="tooltip">
+        <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4>
+        <p>${payload[0].value.toFixed(2)} CAD</p>
+      </div>
+    );
+  }
+  return null;
+}
 
 function Cpu() {
 
-  const [valuesUsage, setValuesUsage] = useState(Array.apply(null, Array(10)).map(function () { return 0 }));
-  const [times, setTimes] = useState(Array.apply(null, Array(10)).map(function () { return 0 }));
-  const [seconds, setSeconds] = useState(0);
+  const data = [];
+  for (let num = 30; num >= 0; num--) {
+    data.push({
+      date: subDays(new Date(), num).toISOString().substr(0, 10),
+      value: 1 + Math.random(),
+    });
+  }
 
-  const data = [
-    { time: times[0], usage: valuesUsage[0] },
-    { time: times[1], usage: valuesUsage[1] },
-    { time: times[2], usage: valuesUsage[2] },
-    { time: times[3], usage: valuesUsage[3] },
-    { time: times[4], usage: valuesUsage[4] },
-    { time: times[5], usage: valuesUsage[5] },
-    { time: times[6], usage: valuesUsage[6] },
-    { time: times[7], usage: valuesUsage[7] },
-    { time: times[8], usage: valuesUsage[8] },
-    { time: times[9], usage: valuesUsage[9] }
-  ];
 
-  const putNewValue = (newValue, listData) => {
-    let cont = 1
-    let newData = [newValue]
-    while (cont < listData.length) {
-      newData[cont] = listData[cont - 1]
-      cont++
-    }
-    return newData
-  };
-
-  const getCPU = async () => {
-    try {
-      const res = await publicRequest.get("cpu/");
-      setValuesUsage(putNewValue(res.data["cpu"], valuesUsage))
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      //LOOP EVERY SECOND
-      console.log(valuesUsage)
-      setTimes(putNewValue(seconds, times))
-      //getCPU()
-      setValuesUsage(putNewValue(Math.floor(Math.random() * 100) + 1, valuesUsage))
-      setSeconds(seconds + 1)
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [times, valuesUsage, seconds]);
-
+  
   return (
     <div className='pageCPU'>
       <Sidebar />
@@ -63,12 +44,41 @@ function Cpu() {
         </div>
         <div className='containerChart'>
           <ResponsiveContainer width="100%" height={500}>
-            <LineChart data={data}>
-              <Line yAxisId="right" type="category" dataKey="usage" stroke="#ee4f4f" />
-              <YAxis yAxisId="right" orientation="right" />
-              <CartesianGrid stroke="#eeecec" />
-              <XAxis dataKey="time" />
-            </LineChart>
+            <AreaChart data={data}>
+              <defs>
+                <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#e25a24" stopOpacity={0.4} />
+                  <stop offset="75%" stopColor="#e25a24" stopOpacity={0.05} />
+                </linearGradient>
+              </defs>
+
+              <Area dataKey="value" stroke="#e25a24" fill="url(#color)" />
+
+              <XAxis
+                dataKey="date"
+                axisLine={false}
+                tickLine={false}
+                tickFormatter={(str) => {
+                  const date = parseISO(str);
+                  if (date.getDate() % 7 === 0) {
+                    return format(date, "MMM, d");
+                  }
+                  return "";
+                }}
+              />
+
+              <YAxis
+                datakey="value"
+                axisLine={false}
+                tickLine={false}
+                tickCount={8}
+                tickFormatter={(number) => `$${number.toFixed(2)}`}
+              />
+
+              <Tooltip content={<CustomTooltip />} />
+
+              <CartesianGrid opacity={0.1} vertical={false} />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
       </div>

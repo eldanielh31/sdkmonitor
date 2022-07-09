@@ -1,14 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
-.containerTopCpu{
-    flex: 2;
+.containerTopCpu {
+    flex: 1;
     /* padding: 0px 0px 20px 10px; */
 }
-.titleCPU{
-    font-family: 'Bai Jamjuree', sans-serif;
-    padding-left: 2em;
+
+.titleCPU {
+    font-family: 'Open Sans',
+        Arial,
+        sans-serif;
+    font-weight: normal;
 }
 
-.containerCPU{
+.containerCPU {
+    flex:1;
     margin: 0em 1em 0em 1em;
 }
 
@@ -17,8 +20,4 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
-}
-
-.containerChart{
-    width: 85vw;
 }

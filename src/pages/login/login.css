@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
-
-.errorLogin{
-    font-family: 'Bai Jamjuree', sans-serif;
+.errorLogin {
+    font-family: 'Open Sans',
+        Arial,
+        sans-serif;
+    font-weight: normal;
     font-size: 20px;
     margin-top: 10px;
     color: crimson;
 }
 
-.titleLogin{
-    font-family: 'Bai Jamjuree', sans-serif;
+.titleLogin {
+    font-family: 'Open Sans',
+        Arial,
+        sans-serif;
+    font-weight: normal;
     font-size: 25px;
 }
 
@@ -22,7 +26,8 @@
 }
 
 .containerLogin {
-    background-image: linear-gradient(to right, #141e30, #243b55);
+    background: rgb(222, 155, 85);
+    background: linear-gradient(90deg, rgba(222, 155, 85, 1) 0%, rgba(255, 131, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -40,11 +45,14 @@
 
 .groupLogin {
     position: relative;
-    margin-top: 45px;
+    margin-top: 40px;
 }
 
 .inputLogin {
-    font-family: 'Bai Jamjuree', sans-serif;
+    font-family: 'Open Sans',
+        Arial,
+        sans-serif;
+    font-weight: normal;
     font-size: 20px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -59,7 +67,10 @@
 
 /* LABEL ======================================= */
 .labelLogin {
-    font-family: 'Bai Jamjuree', sans-serif;
+    font-family: 'Open Sans',
+        Arial,
+        sans-serif;
+    font-weight: normal;
     color: black;
     font-size: 18px;
     font-weight: normal;
@@ -124,6 +135,7 @@
 }
 
 .button-57 {
+    margin-bottom: 10px;
     width: 20em;
     position: relative;
     overflow: hidden;
