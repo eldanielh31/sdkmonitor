@@ -2,12 +2,21 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from threading import Thread
+
+
+class TestThread(Thread):
+    def run(self):
+        #codigo en thread
+        print('Thread running')
 
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SDKmonitorAPI.settings')
     try:
+        #Inicio thread cpu y memory
+        TestThread().start()
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(

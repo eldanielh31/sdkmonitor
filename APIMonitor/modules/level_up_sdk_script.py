@@ -3,7 +3,7 @@
 from suwa_client.client import Client
 
 client_port = 1943
-client_ip = '127.0.0.1'
+client_ip = '10.0.1.0'
 node_id = 1
 pv = Client(host=client_ip, port=client_port, timeout=None, load_plugins=True)
 
