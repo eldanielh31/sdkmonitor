@@ -3,13 +3,12 @@
 import os
 import sys
 from threading import Thread
+import threading
 
 
 class TestThread(Thread):
-    def run(self):
-        #codigo en thread
-        print('Thread running')
-
+        def run(self):
+            print('Thread running')
 
 def main():
     """Run administrative tasks."""
