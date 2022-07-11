@@ -55,7 +55,7 @@ class MacTable:
         tempDicc["mac_sa_groups"] = MacTable.pv_l2_sa_groups_entry_specsObjectToDicc(
             pv_l2_entry_specs.mac_sa_groups)
         tempDicc["mac_da_group_enable "] = pv_l2_entry_specs.mac_da_group_enable
-        tempDicc["mac_sa_groups"] = MacTable.pv_l2_da_groups_entry_specsObjectToDicc(
+        tempDicc["mac_da_groups"] = MacTable.pv_l2_da_groups_entry_specsObjectToDicc(
             pv_l2_entry_specs.mac_da_groups)
         tempDicc["is_mac_sa_only"] = pv_l2_entry_specs.is_mac_sa_only
         tempDicc["mac_group_id"] = pv_l2_entry_specs.mac_group_id

@@ -3,6 +3,8 @@ from urllib import response
 from django.views import View
 from django.http import JsonResponse
 from APIMonitor.models import SystemUsage, MacTable
+from .modules import level_up_connection
+
 
 
 # Create your views here.
@@ -28,6 +30,8 @@ class IPView(View):
     def get(self, request, pk):
         response = JsonResponse( {
             "id" : pk,
+            "isCorrect" :
+            # "isCorrect" : level_up_connection.isIPConnect(pk)
             "isCorrect" : True
         })
         response["Access-Control-Allow-Origin"] = "*"
