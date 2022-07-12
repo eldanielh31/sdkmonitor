@@ -1,9 +1,11 @@
 .containerTopCpu {
     flex: 1;
+    margin: 1em;
     /* padding: 0px 0px 20px 10px; */
 }
 
 .titleCPU {
+    
     font-family: 'Open Sans',
         Arial,
         sans-serif;
@@ -20,4 +22,7 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
+}
+.wrapperRadioGroup{
+    margin: 1em 1em 1em 1em;
 }

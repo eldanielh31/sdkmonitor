@@ -10,6 +10,8 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { orange } from "@mui/material/colors";
 
 function CustomTooltip({ active, payload, label }) {
   if (active) {
@@ -25,16 +27,18 @@ function CustomTooltip({ active, payload, label }) {
 
 function Cpu() {
 
+  const handleRadioChange = (e) => {
+    console.log(e.target.value);
+  };
+
   const data = [];
-  for (let num = 30; num >= 0; num--) {
+  for (let num = 120; num >= 0; num--) {
     data.push({
       date: subDays(new Date(), num).toISOString().substr(0, 10),
       value: 1 + Math.random(),
     });
   }
 
-
-  
   return (
     <div className='pageCPU'>
       <Sidebar />
@@ -42,8 +46,49 @@ function Cpu() {
         <div className='containerTopCpu'>
           <h1 className='titleCPU'>CPU</h1>
         </div>
+        <div className="wrapperRadioGroup">
+          <FormControl>
+            <RadioGroup 
+              row
+              name="row-radio-buttons-group"
+              onChange={handleRadioChange}
+            >
+              <FormControlLabel value="1D" control={<Radio sx={{
+                color: orange[500],
+                '&.Mui-checked': {
+                  color: orange[500],
+                },
+              }} />} label="1D" />
+              <FormControlLabel value="5D" control={<Radio sx={{
+                color: orange[500],
+                '&.Mui-checked': {
+                  color: orange[500],
+                },
+              }} />} label="5D" />
+              <FormControlLabel value="1M" control={<Radio sx={{
+                color: orange[500],
+                '&.Mui-checked': {
+                  color: orange[500],
+                },
+              }} />} label="1M" />
+              <FormControlLabel value="6M" control={<Radio sx={{
+                color: orange[500],
+                '&.Mui-checked': {
+                  color: orange[500],
+                },
+              }} />} label="6M" />
+              <FormControlLabel value="1A" control={<Radio sx={{
+                color: orange[500],
+                '&.Mui-checked': {
+                  color: orange[500],
+                },
+              }} />} label="1A" />
+            </RadioGroup>
+          </FormControl>
+        </div>
+
         <div className='containerChart'>
-          <ResponsiveContainer width="100%" height={500}>
+          <ResponsiveContainer width="100%" height={650}>
             <AreaChart data={data}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
@@ -60,7 +105,7 @@ function Cpu() {
                 tickLine={false}
                 tickFormatter={(str) => {
                   const date = parseISO(str);
-                  if (date.getDate() % 7 === 0) {
+                  if (date.getDate() % 2 === 0) {
                     return format(date, "MMM, d");
                   }
                   return "";
@@ -72,7 +117,7 @@ function Cpu() {
                 axisLine={false}
                 tickLine={false}
                 tickCount={8}
-                tickFormatter={(number) => `$${number.toFixed(2)}`}
+                tickFormatter={(number) => `%${number.toFixed(2)}`}
               />
 
               <Tooltip content={<CustomTooltip />} />
@@ -81,6 +126,7 @@ function Cpu() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
+
       </div>
     </div>
   )
