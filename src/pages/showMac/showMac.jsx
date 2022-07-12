@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
-import "./showmac.css"
+import "./showMac.css"
 import { useLocation } from "react-router-dom";
 
 function ShowMac() {
