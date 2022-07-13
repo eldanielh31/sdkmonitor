@@ -24,6 +24,11 @@ export const SidebarData = [
         title:"Mac",
         icon:<DesktopWindowsIcon />,
         link:"/mac"
+    },
+    {
+        title:"MacAddress",
+        icon:<DesktopWindowsIcon />,
+        link:"/showmac/:macaddress"
     }
 ]
 

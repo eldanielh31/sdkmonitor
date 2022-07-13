@@ -1,0 +1,11 @@
+.pageSHOWMAC {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+.containerSHOWMAC {
+    flex: 1;
+    margin: 0em 1em 0em 1em;
+    width: 85%;
+}

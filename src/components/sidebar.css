@@ -1,13 +1,31 @@
+@font-face {
+    font-family: MetricHPEXS;
+    src: url('./recursos/MetricHPEXS-Regular.woff2')
+}
 .Sidebar {
     height: 100vh;
     width: 13vw;
     background-color: rgba(255, 131, 0, 1);
+    position: relative;
+
+}
+
+img {
+
+    height: 70px;
+    margin: 8%;
+    position:absolute;
+    bottom:0px;
+
 }
 
 .SidebarList {
     height: auto;
     padding: 0;
     width: 100%;
+    position: absolute;
+    bottom: 430px;
+    
 }
 
 .SidebarList .row {
@@ -17,7 +35,7 @@
     margin: 0%;
     display: flex;
     flex-direction: row;
-    color: antiquewhite;
+    color: white;
     justify-content: center;
     align-items: center;
     font-family: 'Bai Jamjuree', sans-serif;
@@ -34,16 +52,16 @@
 
 .row #icon {
 
-    flex: 10%;
+    flex: 20%;
     display: grid;
     place-items: center;
 }
 
 .row #title {
-    font-family: 'Open Sans',
-        Arial,
-        sans-serif;
+    font-family: MetricHPEXS;
+    letter-spacing: 0.07mm;
+    font-style: normal;
     font-weight: normal;
-    font-size: medium;
-    flex: 15%;
+    font-size: large;
+    flex: 40%;
 }

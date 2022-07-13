@@ -1,5 +1,5 @@
 import React from 'react'
-import CollapsibleTable from '../../components/collapsibleTable/collapsibleTable'
+import TableMacs from '../../components/TableMacs/TableMacs'
 import Sidebar from '../../components/Sidebar'
 import "./mac.css" 
 
@@ -11,7 +11,7 @@ function Mac() {
         <div>
           <h1 className='titleMAC'>MAC Table</h1>
         </div>
-       <CollapsibleTable/>
+       <TableMacs/>
       </div>
     </div>
   )

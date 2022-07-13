@@ -1,4 +1,6 @@
 import React from 'react'
+import Sidebar from '../../components/Sidebar'
+import "./showMac.css"
 import { useLocation } from "react-router-dom";
 
 function ShowMac() {
@@ -7,7 +9,12 @@ function ShowMac() {
     const macAddress = location.pathname.split("/")[2];
 
   return (
-    <div>{macAddress}</div>
+    <div className='pageSHOWMAC'>
+      <Sidebar />
+      <div className='containerSHOWMAC'>
+        MacAddress
+      </div>
+    </div>
   )
 }
 
