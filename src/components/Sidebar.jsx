@@ -1,10 +1,12 @@
 import React from 'react'
 import {SidebarData} from './SidebarData'
 import "./sidebar.css"
+import image from "./recursos/hpe_pri_grn_rev_rgb-1.png"
 
 function Sidebar() {
   return (
     <div className="Sidebar">
+        
         <ul className="SidebarList">
             {SidebarData.map((val, key)=> {
                 return (
@@ -21,6 +23,7 @@ function Sidebar() {
                 );
             })}
         </ul>
+        <img src={image}  />
     </div>
   )
 }

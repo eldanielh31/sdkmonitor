@@ -1,8 +1,27 @@
+.Titulo1 {
+    font-family: 'Open Sans',
+      Arial,
+      sans-serif;
+    font-weight: normal;
+    justify-items: center;
+  }
+
+  .Titulo2 {
+    font-family: 'Open Sans',
+      Arial,
+      sans-serif;
+    font-weight: normal;
+    justify-items: center;
+
+  }
+  
+
 .pageHOME {
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
+
 }
 .containerHOME {
     flex: 1;
