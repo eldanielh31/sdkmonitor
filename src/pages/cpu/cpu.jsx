@@ -10,15 +10,17 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
-import { FormControl, FormControlLabel, Radio, RadioGroup } from "@mui/material";
-import { orange } from "@mui/material/colors";
+import { useState } from "react";
+import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { TextField } from "@mui/material";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 function CustomTooltip({ active, payload, label }) {
   if (active) {
     return (
       <div className="tooltip">
         <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4>
-        <p>${payload[0].value.toFixed(2)} CAD</p>
+        <p>%{payload[0].value.toFixed(2)}</p>
       </div>
     );
   }
@@ -27,8 +29,32 @@ function CustomTooltip({ active, payload, label }) {
 
 function Cpu() {
 
-  const handleRadioChange = (e) => {
-    console.log(e.target.value);
+  const currentDate = new Date();
+  const nextDate = new Date();
+  nextDate.setDate(currentDate.getDate() - 1);
+
+  const [initialValue, setInitialValue] = useState(currentDate)
+  const [finalValue, setFinalValue] = useState(nextDate)
+
+  // const getData = ()=>{
+
+  // };
+
+  const getDate = () => {
+    let date = `${initialValue.getUTCFullYear()}-${("0" + (initialValue.getMonth() + 1)).slice(-2)}-${initialValue.getUTCDate() - 1}`;
+    let date2 = `${finalValue.getUTCFullYear()}-${("0" + (finalValue.getMonth() + 1)).slice(-2)}-${finalValue.getUTCDate() - 1}`;
+    let finaldate = `${date}T${initialValue.getHours()}:${initialValue.getMinutes()}`;
+    let finaldate2 = `${date2}T${finalValue.getHours()}:${finalValue.getMinutes()}`
+
+    console.log(`${finaldate}|${finaldate2}`);
+
+  };
+
+  const handleChangeInitial = (newValue) => {
+    setInitialValue(newValue);
+  };
+  const handleChangeFinal = (newValue) => {
+    setFinalValue(newValue);
   };
 
   const data = [];
@@ -46,49 +72,11 @@ function Cpu() {
         <div className='containerTopCpu'>
           <h1 className='titleCPU'>CPU</h1>
         </div>
-        <div className="wrapperRadioGroup">
-          <FormControl>
-            <RadioGroup 
-              row
-              name="row-radio-buttons-group"
-              onChange={handleRadioChange}
-            >
-              <FormControlLabel value="1D" control={<Radio sx={{
-                color: orange[500],
-                '&.Mui-checked': {
-                  color: orange[500],
-                },
-              }} />} label="1D" />
-              <FormControlLabel value="5D" control={<Radio sx={{
-                color: orange[500],
-                '&.Mui-checked': {
-                  color: orange[500],
-                },
-              }} />} label="5D" />
-              <FormControlLabel value="1M" control={<Radio sx={{
-                color: orange[500],
-                '&.Mui-checked': {
-                  color: orange[500],
-                },
-              }} />} label="1M" />
-              <FormControlLabel value="6M" control={<Radio sx={{
-                color: orange[500],
-                '&.Mui-checked': {
-                  color: orange[500],
-                },
-              }} />} label="6M" />
-              <FormControlLabel value="1A" control={<Radio sx={{
-                color: orange[500],
-                '&.Mui-checked': {
-                  color: orange[500],
-                },
-              }} />} label="1A" />
-            </RadioGroup>
-          </FormControl>
-        </div>
+
+        <button onClick={getDate}>Get Date</button>
 
         <div className='containerChart'>
-          <ResponsiveContainer width="100%" height={650}>
+          <ResponsiveContainer width="100%" height={700}>
             <AreaChart data={data}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
@@ -126,6 +114,29 @@ function Cpu() {
             </AreaChart>
           </ResponsiveContainer>
         </div>
+        <div className="containerDates">
+          <div className="containerDate">
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DateTimePicker
+                label="Initial Date&Time"
+                value={initialValue}
+                onChange={handleChangeInitial}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+          <div className="containerDate">
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DateTimePicker
+                label="Final Date&Time"
+                value={finalValue}
+                onChange={handleChangeFinal}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
+        </div>
+        
 
       </div>
     </div>
