@@ -4,12 +4,12 @@ switch_ip = "10.100.21.190"
 current_pc_ip = "10.0.12.171"
 ipEnter = ""
 #boolean if connect to ip
-reachable = True if os.system(f'ping -c 1 {switch_ip}') is 0 else False
+reachable = True if os.system(f'ping -c 1 {switch_ip}') == 0 else False
 
 #function return boolean ip connected
 def isIPConnect(ip):
     global ipEnter
-    if(os.system(f'ping -c 1 {ip}') is 0):
+    if(os.system(f'ping -c 1 {ip}') == 0):
         ipEnter = ip
         return True
     else:
