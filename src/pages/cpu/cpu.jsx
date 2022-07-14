@@ -14,6 +14,7 @@ import { useState } from "react";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { publicRequest } from "../../requestMethods";
 
 function CustomTooltip({ active, payload, label }) {
   if (active) {
@@ -33,22 +34,8 @@ function Cpu() {
   const nextDate = new Date();
   nextDate.setDate(currentDate.getDate() - 1);
 
-  const [initialValue, setInitialValue] = useState(currentDate)
-  const [finalValue, setFinalValue] = useState(nextDate)
-
-  // const getData = ()=>{
-
-  // };
-
-  const getDate = () => {
-    let date = `${initialValue.getUTCFullYear()}-${("0" + (initialValue.getMonth() + 1)).slice(-2)}-${initialValue.getUTCDate() - 1}`;
-    let date2 = `${finalValue.getUTCFullYear()}-${("0" + (finalValue.getMonth() + 1)).slice(-2)}-${finalValue.getUTCDate() - 1}`;
-    let finaldate = `${date}T${initialValue.getHours()}:${initialValue.getMinutes()}`;
-    let finaldate2 = `${date2}T${finalValue.getHours()}:${finalValue.getMinutes()}`
-
-    console.log(`${finaldate}|${finaldate2}`);
-
-  };
+  const [initialValue, setInitialValue] = useState(currentDate);
+  const [finalValue, setFinalValue] = useState(nextDate);
 
   const handleChangeInitial = (newValue) => {
     setInitialValue(newValue);
@@ -65,6 +52,22 @@ function Cpu() {
     });
   }
 
+  const getData = async () => {
+    
+    try {
+      let date = `${initialValue.getUTCFullYear()}-${("0" + (initialValue.getMonth() + 1)).slice(-2)}-${initialValue.getUTCDate() - 1}`;
+      let date2 = `${finalValue.getUTCFullYear()}-${("0" + (finalValue.getMonth() + 1)).slice(-2)}-${finalValue.getUTCDate() - 1}`;
+      let finaldate = `${date}T${initialValue.getHours()}:${initialValue.getMinutes()}`;
+      let finaldate2 = `${date2}T${finalValue.getHours()}:${finalValue.getMinutes()}`
+      let fulldate = `${finaldate}|${finaldate2}`
+      const res = await publicRequest.get(`/cpu/${fulldate}/`)
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  };
+
   return (
     <div className='pageCPU'>
       <Sidebar />
@@ -72,8 +75,6 @@ function Cpu() {
         <div className='containerTopCpu'>
           <h1 className='titleCPU'>CPU</h1>
         </div>
-
-        <button onClick={getDate}>Get Date</button>
 
         <div className='containerChart'>
           <ResponsiveContainer width="100%" height={700}>

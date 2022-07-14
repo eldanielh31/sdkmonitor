@@ -1,7 +1,7 @@
 import React from 'react'
 import TableMacs from '../../components/TableMacs/TableMacs'
 import Sidebar from '../../components/Sidebar'
-import "./mac.css" 
+import "./mac.css"
 
 function Mac() {
   return (

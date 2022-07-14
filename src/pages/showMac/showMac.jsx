@@ -12,7 +12,7 @@ function ShowMac() {
     <div className='pageSHOWMAC'>
       <Sidebar />
       <div className='containerSHOWMAC'>
-        MacAddress
+        {macAddress}
       </div>
     </div>
   )
