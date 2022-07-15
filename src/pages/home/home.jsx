@@ -1,7 +1,6 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import "./home.css"
-import imagehome from "../../components/recursos/Hewlett_Packard_Enterprise_logo.svg.png"
 
 function Home() {
   return (

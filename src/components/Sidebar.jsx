@@ -1,7 +1,6 @@
 import React from 'react'
 import {SidebarData} from './SidebarData'
 import "./sidebar.css"
-import image from "./recursos/hpe_pri_grn_rev_rgb-1.png"
 
 function Sidebar() {
   return (
@@ -24,7 +23,7 @@ function Sidebar() {
             })}
         </ul>
         <div className="imagecontainer">
-            <img src={image} alt="" width= "82%" />
+            <img className='logosidebar' src={URL='https://img2.storyblok.com/450x233/smart/filters:quality(100)/f/70749/450x233/eba2433f96/aruba_hp_lockup_reversed.png'} alt="" width= "82%" />
         </div>
         
         <div className="logoutcontainer">
