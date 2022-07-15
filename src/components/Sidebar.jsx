@@ -23,6 +23,7 @@ function Sidebar() {
             })}
         </ul>
         <img src={image}  />
+        <button class="button-87" role="button">Log Out</button>
     </div>
   )
 }
