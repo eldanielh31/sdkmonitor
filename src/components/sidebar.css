@@ -4,17 +4,68 @@
 }
 
 .Sidebar {
-    height: 100vh;
-    width: 20vh;
+    height: 100%;
+    width: 14%;
     background-color: rgba(255, 131, 0, 1);
     position: relative;
+
 }
 
 .imgSideBar {
     margin-top: 25px;
 }
 
+.logosidebar {
+
+    margin: 8%;
+}
+
+.logoutcontainer {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+}
+
+.button-87 {
+  margin: 17%;
+  width: 53%;
+  font-family: MetricHPEXS;
+  letter-spacing: 0.1mm;
+  font-size:small;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  background-color: rgb(222, 117, 6);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+
+.button-87:active {
+  transform: scale(0.86);
+}
+
+.button-87:hover{
+
+    cursor: pointer;
+    background-color: white;
+    color: rgb(222, 117, 6);
+}
+
+
+
 .SidebarList {
+    height: auto;
     padding: 0;
     width: 100%;
     min-width: 100%;
@@ -29,18 +80,27 @@
     display: flex;
     flex-direction: row;
     color: white;
+    justify-content: center;
     align-items: center;
     font-family: MetricHPEXS;
 }
 
 .SidebarList .row:hover {
     cursor: pointer;
-    background-color: rgb(222, 117, 6);
+    background-color: white;
+    color: rgb(222, 117, 6);
 }
 
-.SidebarList #active {
-    background-color: rgb(222, 117, 6);
 
+
+.SidebarList #active {
+    background-color:rgb(222, 117, 6);
+    
+}
+
+.SidebarList #active:hover {
+    color: white;
+    
 }
 
 .row #icon {

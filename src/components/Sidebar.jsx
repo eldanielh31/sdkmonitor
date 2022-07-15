@@ -2,11 +2,9 @@ import React from 'react'
 import { SidebarData } from './SidebarData'
 import "./sidebar.css"
 import LogoutIcon from '@mui/icons-material/Logout';
-import image from "./recursos/hpe_pri_grn_rev_rgb-1.png"
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUserFailure, deleteUserStart, deleteUserSuccess } from '../redux/userRedux';
-
 function Sidebar() {
 
     const dispatch = useDispatch();
@@ -56,8 +54,8 @@ function Sidebar() {
                     Logout
                 </div>
             </li>
-        </div>
-    )
+        </div >
+  )
 }
 
 export default Sidebar
