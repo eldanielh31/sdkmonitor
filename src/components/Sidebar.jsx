@@ -23,8 +23,18 @@ function Sidebar() {
                 );
             })}
         </ul>
-        <img src={image}  />
-        <button class="button-87" role="button">Log Out</button>
+        <div className="imagecontainer">
+            <img src={image} alt="" width= "82%" />
+        </div>
+        
+        <div className="logoutcontainer">
+            
+            <button class="button-87" >
+                Log Out
+                </button> 
+        </div>
+
+        
     </div>
   )
 }

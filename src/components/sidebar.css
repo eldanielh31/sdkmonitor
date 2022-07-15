@@ -5,14 +5,35 @@
 
 .Sidebar {
     height: 100%;
+    width: 14%;
     min-width: 14%;
     background-color: rgba(255, 131, 0, 1);
     position: relative;
 
 }
 
+.imagecontainer {
+
+    width: 100%;
+    position: absolute;
+    bottom: 82%;
+}
+
+img {
+
+    margin: 8%;
+}
+
+.logoutcontainer {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+}
+
 .button-87 {
-  margin: 20%;
+  margin: 17%;
+  width: 53%;
   font-family: MetricHPEXS;
   letter-spacing: 0.1mm;
   font-size:small;
@@ -31,8 +52,6 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  position: absolute;
-  bottom: 0%;
 }
 
 
@@ -41,21 +60,12 @@
   transform: scale(0.86);
 }
 
-img {
 
-    height: 8.5%;
-    max-height: 8.5%;
-    margin: 12%;
-    position:absolute;
-    bottom:81.5%;
-
-}
 
 .SidebarList {
     height: auto;
     padding: 0;
     width: 100%;
-    min-width: 100%;
     position: absolute;
     bottom: 40%;
     
@@ -99,3 +109,4 @@ img {
     font-size: large;
     flex: 40%;
 }
+

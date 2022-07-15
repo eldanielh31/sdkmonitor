@@ -15,7 +15,7 @@ function Home() {
 
       </div>
 
-      <img class="logohome" src={imagehome}  />
+      
       
     </div>
   )
