@@ -7,14 +7,13 @@
     width: 13vw;
     background-color: rgba(255, 131, 0, 1);
     position: relative;
-
 }
 
 img {
 
-    height: 70px;
+    height: 8vh;
     margin: 8%;
-    position:absolute;
+    position:relative;
     bottom:0px;
 
 }
