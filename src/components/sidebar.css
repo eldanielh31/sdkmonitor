@@ -15,55 +15,6 @@
     margin-top: 25px;
 }
 
-.logosidebar {
-
-    margin: 8%;
-}
-
-.logoutcontainer {
-
-    width: 100%;
-    position: absolute;
-    bottom: 0%;
-}
-
-.button-87 {
-  margin: 17%;
-  width: 53%;
-  font-family: MetricHPEXS;
-  letter-spacing: 0.1mm;
-  font-size:small;
-  padding: 15px 30px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  border-radius: 10px;
-  display: block;
-  border: 0px;
-  background-color: rgb(222, 117, 6);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-
-
-.button-87:active {
-  transform: scale(0.86);
-}
-
-.button-87:hover{
-
-    cursor: pointer;
-    background-color: white;
-    color: rgb(222, 117, 6);
-}
-
-
-
 .SidebarList {
     height: auto;
     padding: 0;
@@ -94,13 +45,12 @@
 
 
 .SidebarList #active {
-    background-color:rgb(222, 117, 6);
-    
+    background-color: white;
+    color: rgb(222, 117, 6);
 }
 
 .SidebarList #active:hover {
     color: white;
-    
 }
 
 .row #icon {
@@ -135,7 +85,8 @@
 
 .rowLogout:hover {
     cursor: pointer;
-    background-color: rgb(222, 117, 6);
+    background-color: white;
+    color: rgb(222, 117, 6);
 }
 
 .rowLogout #icon {
