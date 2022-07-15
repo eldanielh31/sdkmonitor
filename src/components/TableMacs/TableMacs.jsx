@@ -6,13 +6,13 @@ import "./tableMac.css"
 var data = require('../../data.json');
 
 const columns = [
-  { field: 'MAC', headerName: 'MAC', width: 175 },
-  { field: 'VLAN', headerName: 'VLAN', width: 170 },
-  { field: 'Vport', headerName: 'Vport', width: 170 },
-  { field: 'PuertoDST', headerName: 'Puerto DST', width: 170 },
-  { field: 'Breakpoint', headerName: 'Breakpoint', width: 170 },
+  { field: 'MAC', headerName: 'MAC', width: 210 },
+  { field: 'VLAN', headerName: 'VLAN', width: 200 },
+  { field: 'Vport', headerName: 'Vport', width: 200 },
+  { field: 'PuertoDST', headerName: 'Puerto DST', width: 200 },
+  { field: 'Breakpoint', headerName: 'Breakpoint', width: 200 },
   {
-    field: 'MostrarOtros', headerName: 'Action', width: 170, sortable: false,
+    field: 'MostrarOtros', headerName: 'Action', width: 120, sortable: false,
     renderCell: (params) => {
       return (
         <>
