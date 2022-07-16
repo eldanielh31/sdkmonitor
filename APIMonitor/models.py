@@ -3,12 +3,11 @@ from .modules import level_up_mocking_script
 
 # Create your models here.
 
-
 class SystemUsage:
-    def getCPUPercent():
+    def getCPUPercent(dates):
         return psutil.cpu_percent()
 
-    def getMemoryPercent():
+    def getMemoryPercent(dates):
         return psutil.virtual_memory().percent
 
 

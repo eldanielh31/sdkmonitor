@@ -3,7 +3,6 @@
 import os
 import sys
 from threading import Thread
-import threading
 
 
 class TestThread(Thread):

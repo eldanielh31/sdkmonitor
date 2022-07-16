@@ -3,9 +3,7 @@ from urllib import response
 from django.views import View
 from django.http import JsonResponse
 from APIMonitor.models import SystemUsage, MacTable
-from .modules import level_up_connection
-
-
+# from .modules import level_up_connection
 
 # Create your views here.
 class MacListView(View):
@@ -15,14 +13,14 @@ class MacListView(View):
         return response
 
 class CPUView(View):
-    def get(self, request):
-        response = JsonResponse({"cpu": SystemUsage.getCPUPercent()})
+    def get(self, request, pk):
+        response = JsonResponse(SystemUsage.getCPUPercent(pk))
         response["Access-Control-Allow-Origin"] = "*"
         return response
 
 class MemoryView(View):
-    def get(self, request):
-        response = JsonResponse( {"memory" : SystemUsage.getMemoryPercent()} )
+    def get(self, request, pk):
+        response = JsonResponse(SystemUsage.getMemoryPercent(pk))
         response["Access-Control-Allow-Origin"] = "*"
         return response
 
@@ -30,7 +28,6 @@ class IPView(View):
     def get(self, request, pk):
         response = JsonResponse( {
             "id" : pk,
-            "isCorrect" :
             # "isCorrect" : level_up_connection.isIPConnect(pk)
             "isCorrect" : True
         })
