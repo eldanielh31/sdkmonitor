@@ -1,8 +1,6 @@
 from datetime import datetime
-from time import sleep
 import psutil
 import json
-import threading
 
 diccCPU = {}
 diccMemory = {}
@@ -84,10 +82,7 @@ def saveInDictMemory():
         diccMemory[dateNow] = {timeNowWithoutSeconds: [
             {'time': timeNowWithSeconds, 'value': getMemoryPercent()}]}
 
-def main():
-    loadJson()
-    while True:
-        saveInDictCPU()
-        saveInDictMemory()
-        saveJson()
-        sleep(5)
+def mainCpuMemory():
+    saveInDictCPU()
+    saveInDictMemory()
+    saveJson()

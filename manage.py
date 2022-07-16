@@ -3,24 +3,20 @@
 import os
 import sys
 from threading import Thread
-from test import  main
-import threading
+from time import sleep
+from CPUandMemory import loadJson, mainCpuMemory
 
-
-
-class TestThread(Thread):
-        def run(self):
-            print('Thread running')
+def thread():
+    loadJson()
+    while True:
+        mainCpuMemory()
+        sleep(5)
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SDKmonitorAPI.settings')
     try:
         from django.core.management import execute_from_command_line
-        #Inicio thread cpu y memory
-        hilo1= threading.Thread(target=main)
-        hilo1.start()
-        
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "
@@ -31,4 +27,5 @@ def main():
 
 
 if __name__ == '__main__':
+    Thread(target=thread).start()
     main()
