@@ -3,6 +3,7 @@
 import os
 import sys
 from threading import Thread
+from test import main
 
 
 class TestThread(Thread):
@@ -14,7 +15,7 @@ def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SDKmonitorAPI.settings')
     try:
         #Inicio thread cpu y memory
-        TestThread().start()
+        
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
