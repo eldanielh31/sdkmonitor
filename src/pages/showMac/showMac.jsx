@@ -7,13 +7,13 @@ import MacAddress from '../../components/MacAddress/MacAddress';
 function ShowMac() {
 
     const location = useLocation()
-    const acAddress = location.pathname.split("/")[2];
+    const MacAddress = location.pathname.split("/")[2];
 
   return (
     <div className='pageSHOWMAC'>
       <Sidebar />
       <div className='containerSHOWMAC'>
-        {macAddress}
+        {MacAddress}
       </div>
     </div>
   )
