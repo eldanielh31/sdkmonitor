@@ -44,10 +44,9 @@ class FirstThread(Thread):
                 f.close()
 
 def main():
-        while True:
-            y = json.dumps(dicCPU)
-            print(y)
-            FirstThread().start()
+    FirstThread().start()
+    while True:
+        print(dicCPU)
         
 if __name__ == '__main__':
     main()
