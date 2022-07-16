@@ -49,7 +49,7 @@ def saveInDictCPU():
     global diccCPU
 
     dateNow = getDate()
-    timeNowWithSeconds = getTime("%H:%M:%S")
+    timeNowWithSeconds = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     timeNowWithoutSeconds = getTime("%H:%M")
 
     if(dateNow in diccCPU):
@@ -67,7 +67,7 @@ def saveInDictMemory():
     global diccMemory
 
     dateNow = getDate()
-    timeNowWithSeconds = getTime("%H:%M:%S")
+    timeNowWithSeconds = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     timeNowWithoutSeconds = getTime("%H:%M")
 
     if(dateNow in diccMemory):

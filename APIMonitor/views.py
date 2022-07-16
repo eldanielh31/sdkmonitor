@@ -14,13 +14,13 @@ class MacListView(View):
 
 class CPUView(View):
     def get(self, request, pk):
-        response = JsonResponse(SystemUsage.getCPUPercent(pk))
+        response = JsonResponse(SystemUsage.getCPUPercent(pk), safe=False)
         response["Access-Control-Allow-Origin"] = "*"
         return response
 
 class MemoryView(View):
     def get(self, request, pk):
-        response = JsonResponse(SystemUsage.getMemoryPercent(pk))
+        response = JsonResponse(SystemUsage.getMemoryPercent(pk), safe=False)
         response["Access-Control-Allow-Origin"] = "*"
         return response
 
