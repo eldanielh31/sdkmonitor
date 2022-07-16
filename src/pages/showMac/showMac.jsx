@@ -13,13 +13,7 @@ function ShowMac() {
     <div className='pageSHOWMAC'>
       <Sidebar />
       <div className='containerSHOWMAC'>
-        <div>
-          <h1 className='titleMAC'>Mac Address</h1>
-          <div>
-            <h2 className='titleMAC'>Mac ID : 1D:4F:55:89:3A</h2>
-          </div>
-        </div>
-      <MacAddress/>
+        {macAddress}
       </div>
     </div>
   )

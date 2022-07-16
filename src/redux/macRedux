@@ -1,0 +1,77 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+export const macSlice = createSlice({
+
+    name: "mac",
+    initialState:{
+        macs: [],
+        isFetching: false,
+        error: false
+    },
+    reducers: {
+        //GET ALL
+        getMacStart: (state)=>{
+            state.isFetching = true;
+            state.error = false;
+        },
+        getMacSuccess: (state, action)=>{
+            state.isFetching = false;
+            state.macs = action.payload;
+        },
+        getMacFailure: (state)=>{
+            state.isFetching = false;
+            state.error = true;
+        },
+        //DELETE
+        deleteMacStart: (state)=>{
+            state.isFetching = true;
+            state.error = false;
+        },
+        deleteMacSuccess: (state, action)=>{
+            state.isFetching = false;
+            state.macs.splice(
+                state.macs.findIndex((item)=> item._id === action.payload),
+                1
+            );
+        },
+        deleteMacFailure: (state)=>{
+            state.isFetching = false;
+            state.error = true;
+        },
+        //UPDATE
+        updateMacStart: (state)=>{
+            state.isFetching = true;
+            state.error = false;
+        },
+        updateMacSuccess: (state, action)=>{
+            state.isFetching = false;
+            state.macs[state.macs.findIndex((item)=> item._id === action.payload.id)] = action.payload.Mac;
+        },
+        updateMacFailure: (state)=>{
+            state.isFetching = false;
+            state.error = true;
+        },
+        //ADD
+        addMacStart: (state)=>{
+            state.isFetching = true;
+            state.error = false;
+        },
+        addMacSuccess: (state, action)=>{
+            state.isFetching = false;
+            state.macs.push(action.payload);
+        },
+        addMacFailure: (state)=>{
+            state.isFetching = false;
+            state.error = true;
+        }
+    },
+});
+
+export const {
+    getMacStart, getMacSuccess, getMacFailure, 
+    deleteMacStart, deleteMacSuccess, deleteMacFailure,
+    updateMacFailure, updateMacStart, updateMacSuccess,
+    addMacFailure, addMacStart, addMacSuccess,
+} = macSlice.actions;
+
+export default macSlice.reducer;

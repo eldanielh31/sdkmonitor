@@ -2,30 +2,25 @@
     font-family: MetricHPEXS;
     src: url('./recursos/MetricHPEXS-Regular.woff2')
 }
+
 .Sidebar {
-    height: 100vh;
-    width: 13vw;
+    height: 100%;
+    width: 14%;
     background-color: rgba(255, 131, 0, 1);
     position: relative;
 
 }
 
-img {
-
-    height: 70px;
-    margin: 8%;
-    position:absolute;
-    bottom:0px;
-
+.imgSideBar {
+    margin-top: 25px;
 }
 
 .SidebarList {
     height: auto;
     padding: 0;
     width: 100%;
+    min-width: 100%;
     position: absolute;
-    bottom: 430px;
-    
 }
 
 .SidebarList .row {
@@ -38,16 +33,24 @@ img {
     color: white;
     justify-content: center;
     align-items: center;
-    font-family: 'Bai Jamjuree', sans-serif;
+    font-family: MetricHPEXS;
 }
 
 .SidebarList .row:hover {
     cursor: pointer;
-    background-color: rgba(222, 155, 85, 1);
+    background-color: white;
+    color: rgb(222, 117, 6);
 }
 
+
+
 .SidebarList #active {
-    background-color: rgba(222, 155, 85, 1);
+    background-color: white;
+    color: rgb(222, 117, 6);
+}
+
+.SidebarList #active:hover {
+    color: white;
 }
 
 .row #icon {
@@ -64,4 +67,41 @@ img {
     font-weight: normal;
     font-size: large;
     flex: 40%;
+}
+
+.rowLogout {
+    position: absolute;
+    top: 90vh;
+    width: 100%;
+    height: 70px;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    font-family: MetricHPEXS;
+}
+
+.rowLogout:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgb(222, 117, 6);
+}
+
+.rowLogout #icon {
+
+    flex: 20%;
+    display: grid;
+    place-items: center;
+}
+
+.rowLogout #title {
+    font-family: MetricHPEXS;
+    letter-spacing: 0.07mm;
+    font-style: normal;
+    font-weight: normal;
+    font-size: large;
+    flex: 40%;
+
 }

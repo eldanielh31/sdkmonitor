@@ -6,6 +6,7 @@ import {
 import './App.css';
 import { Home, Login, Cpu, Mac, Memory, ShowMac } from "./pages/indexPages"
 import PrivateRoute from "./utils/PrivateRoute";
+import PublicRoute from "./utils/PublicRoute";
 
 function App() {
   return (<div className="App">
@@ -19,9 +20,9 @@ function App() {
           <Route path="/mac" element={<Mac />} />
           <Route path="/showmac/:macaddress" element={<ShowMac />} />
         </Route>
-
-        <Route path="/login" element={<Login />} />
-
+        <Route element={<PublicRoute />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </div>
