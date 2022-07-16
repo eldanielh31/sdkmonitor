@@ -18,8 +18,6 @@ function Home() {
         <div className='Titulo2'>"Creando conexiones que impulsen a las empresas y al mundo."</div>     
 
       </div>
-
-      
       
     </div>
   )
