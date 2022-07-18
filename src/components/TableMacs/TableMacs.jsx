@@ -18,6 +18,7 @@ function CreateDate_TableMac (){
     MacsData.push({...MacData});
   }
 }
+
 const columns = [
   { field: 'MAC', headerName: 'MAC', width: 210 },
   { field: 'VLAN', headerName: 'VLAN', width: 200 },
@@ -47,13 +48,13 @@ export default function TableMacs() {
 
   return (
     CreateDate_TableMac(),
-    <div style={{ height: 650, width: '100%' }}>
+    <div style={{ height: 685, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
         getRowId={(row) => row.MAC}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
+        pageSize={11}
+        rowsPerPageOptions={[11]}
       />
     </div>
   );
