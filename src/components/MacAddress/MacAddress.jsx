@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import Divider from '@mui/material/Divider';
 import MonitorWeight from '@mui/icons-material/MonitorWeight';
-import { orange,pink, white } from '@mui/material/colors';
+import { orange } from '@mui/material/colors';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#ef6c00' : '#fff',
@@ -29,7 +29,7 @@ export default function MacAddress() {
                 theme.palette.mode === 'dark'? '#ef6c00' : orange[600],
         }}
         >
-            <Grid container spacing={2}>
+            <Grid container spacing={2} columns={24}>
                 <Grid item>
                     <ButtonBase sx={{ width: 50, height: 90 }}>
                         <MonitorWeight fontSize="large" sx={{color:'#FFFFFF'}}/>
