@@ -18,7 +18,7 @@ function ShowMac() {
             <h2 className='titleMAC'>Mac ID : {MacAddressLocation}</h2>
           </div>
         </div>
-          <MacAddress/>
+        <MacAddress mac={MacAddressLocation}/>
       </div>
     </div>
   )

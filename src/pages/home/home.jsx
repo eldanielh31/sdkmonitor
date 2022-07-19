@@ -10,7 +10,7 @@ function Home() {
 
         <dic className='containerlogohome'>
           
-          <img className='logohome' src={URL='https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba_hp_lockup_140x68-01.svg'} alt=""  />
+          <img className='logohome' src={'https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba_hp_lockup_140x68-01.svg'} alt=""  />
         </dic>
         
         <div className ='Titulo1'>SDK Monitor</div>

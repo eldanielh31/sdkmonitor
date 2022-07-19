@@ -7,57 +7,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Divider from '@mui/material/Divider';
 import MonitorWeight from '@mui/icons-material/MonitorWeight';
 import { orange,cyan } from '@mui/material/colors';
-import MacAddressLocation from '../../pages/showMac/showMac';
-
-var data = require('../../data.json');
-
-var MacActual;
-var i=0;
-var estatico;
-var multicast;
-var Sa_Cpu_priority;
-var Mac_Sa_Group;
-var Mac_Sa_Group_1;
-var Mac_Sa_Group_2;
-var Mac_Sa_Group_3;
-var Mac_Sa_Group_4;
-var Mac_Sa_Group_0;
-var Mac_Group_ID;
-var Da_Cpu_priority;
-var Mac_Da_Group;
-var Mac_Da_Group_0;
-var Mac_Da_Group_1;
-var Mac_Da_Group_2;
-var Mac_Da_Group_3;
-var Mac_Da_Group_4;
-var Mac_SA_Only;
-
-function DatosMacAddress (){
-    while (MacAddressLocation!== MacActual){
-        MacActual = String(data[i].mac);
-        i+=1;
-    }
-    estatico = data[(i-1)].is_static;
-    multicast = data[(i-1)].is_multicast;
-    Sa_Cpu_priority = data[(i-1)].cpu_priority_sa;
-    Mac_Sa_Group = data[(i-1)].mac_sa_group_enable;
-    Mac_Sa_Group_0 = data[(i-1)].mac_sa_groups.mac_sa_group_0;
-    Mac_Sa_Group_1 = data[(i-1)].mac_sa_groups.mac_sa_group_1;
-    Mac_Sa_Group_2 = data[(i-1)].mac_sa_groups.mac_sa_group_2;
-    Mac_Sa_Group_3 = data[(i-1)].mac_sa_groups.mac_sa_group_3;
-    Mac_Sa_Group_4 = data[(i-1)].mac_sa_groups.mac_sa_group_4;
-    Mac_Group_ID = data[(i-1)].mac_group_id;
-    Da_Cpu_priority = data[(i-1)].cpu_priority_da;
-    Mac_Da_Group = data[(i-1)].mac_da_group_enable;
-    Mac_Da_Group_0 = data[(i-1)].mac_da_groups.mac_sa_group_0;
-    Mac_Da_Group_1 = data[(i-1)].mac_da_groups.mac_sa_group_1;
-    Mac_Da_Group_2 = data[(i-1)].mac_da_groups.mac_sa_group_2;
-    Mac_Da_Group_3 = data[(i-1)].mac_da_groups.mac_sa_group_3;
-    Mac_Da_Group_4 = data[(i-1)].mac_da_groups.mac_sa_group_4;
-    Mac_SA_Only = data[(i-1)].is_mac_sa_only;
-} 
-
-
+import { useState } from 'react';
 
 const Item = styled(Paper)(({ theme }) => ({
     maxWidth:300,
@@ -71,9 +21,14 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 
-export default function MacAddress() {
+export default function MacAddress(props) {
+
+    const data = require('../../data.json');
+
+    const macList = props.mac.split(',').map(item => {return parseInt(item, 10)})
+    const filteredMac = data.filter(i => JSON.stringify(i.mac) === JSON.stringify(macList))[0]
+
   return (
-    {/*DatosMacAddress()*/},
     {/*La expresion anterior se comenta para que funcione,
     en teoria el error esta en el ciclo while que no se puede hacer esa comparacion, no se si se le ocurre otra forma
     para comparar esos datos y obtener los valores especificos de la direccion MAC*/},
@@ -101,7 +56,7 @@ export default function MacAddress() {
                                 Multicast: 
                             </Typography>
                             <Item>
-                                {multicast}
+                                  {(filteredMac.is_multicast) ? "True" : "False"}
                             </Item>
                         </Grid>
                     </Grid>
@@ -122,7 +77,7 @@ export default function MacAddress() {
                                 Static:
                             </Typography>
                             <Item>
-                                {estatico}
+                                {}
                             </Item>
                         </Grid>
                     </Grid>
@@ -144,29 +99,29 @@ export default function MacAddress() {
                                 SA Data:
                             </Typography>
                             <Item>
-                                SA CPU Priority:{Sa_Cpu_priority}
+                                SA CPU Priority:{}
                             </Item>
                             <Item>
-                                 Mac Sa Group:{Mac_Sa_Group}
+                                 Mac Sa Group:{}
                             </Item>
                             <Grid>
                                 <Typography gutterBottom variant="subtitle1" component="div">
                                     SA Groups:
                                 </Typography>
                                 <Item>
-                                    Mac Sa Group 0:{Mac_Sa_Group_0}
+                                    Mac Sa Group 0:{}
                                 </Item>
                                 <Item>
-                                    Mac Sa Group 1:{Mac_Sa_Group_1}
+                                    Mac Sa Group 1:{}
                                 </Item>
                                 <Item>
-                                    Mac Sa Group 2:{Mac_Sa_Group_2}
+                                    Mac Sa Group 2:{}
                                 </Item>
                                 <Item>
-                                    Mac Sa Group 3:{Mac_Sa_Group_3}
+                                    Mac Sa Group 3:{}
                                 </Item>
                                 <Item>
-                                    Mac Sa Group 4:{Mac_Sa_Group_4}
+                                    Mac Sa Group 4:{}
                                 </Item>
                             </Grid>
                         </Grid>
@@ -188,29 +143,29 @@ export default function MacAddress() {
                                 DA Data:
                             </Typography>
                             <Item>
-                                 DA CPU Priority :{Da_Cpu_priority}
+                                 DA CPU Priority :{}
                             </Item>
                             <Item>
-                                 Mac Da Group:{Mac_Da_Group}
+                                 Mac Da Group:{}
                             </Item>
                             <Grid>
                                 <Typography gutterBottom variant="subtitle1" component="div">
                                     DA Groups:
                                 </Typography>
                                 <Item>
-                                    Mac Da Group 0:{Mac_Da_Group_0}
+                                    Mac Da Group 0:{}
                                 </Item>
                                 <Item>
-                                    Mac Da Group 1:{Mac_Da_Group_1}
+                                    Mac Da Group 1:{}
                                 </Item>
                                 <Item>
-                                    Mac Da Group 2:{Mac_Da_Group_2}
+                                    Mac Da Group 2:{}
                                 </Item>
                                 <Item>
-                                    Mac Da Group 3:{Mac_Da_Group_3}
+                                    Mac Da Group 3:{}
                                 </Item>
                                 <Item>
-                                    Mac Da Group 4:{Mac_Da_Group_4}
+                                    Mac Da Group 4:{}
                                 </Item>
                             </Grid>
                         </Grid>
@@ -233,7 +188,7 @@ export default function MacAddress() {
                                 Mac Group ID
                             </Typography>
                             <Item>
-                                 {Mac_Group_ID}
+                                 {}
                             </Item>
                         </Grid>
                     </Grid>
@@ -254,7 +209,7 @@ export default function MacAddress() {
                                 MAC SA only:
                             </Typography>
                             <Item>
-                                {Mac_SA_Only}
+                                {}
                             </Item>
                         </Grid>
                     </Grid>
