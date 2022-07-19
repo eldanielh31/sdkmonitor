@@ -7,18 +7,21 @@ function ShowMac() {
 
     const location = useLocation()
     const MacAddressLocation = location.pathname.split("/")[2];
+    const replace =/,/g
+    const macAddress = MacAddressLocation.replace(replace, '-')
+    console.log(MacAddressLocation)
 
   return (
     <div className='pageSHOWMAC'>
       <Sidebar />
       <div className='containerSHOWMAC'>
         <div>
-          <h1 className='titleMAC'>Mac Address</h1>
-          <div>
-            <h2 className='titleMAC'>Mac ID : {MacAddressLocation}</h2>
+          <h1 className='titleMAC'>Mac ID : {macAddress}</h1>
+          <div className='MacAddress'>
+          <MacAddress mac={MacAddressLocation}/>
           </div>
         </div>
-        <MacAddress mac={MacAddressLocation}/>
+  
       </div>
     </div>
   )

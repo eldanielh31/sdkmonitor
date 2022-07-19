@@ -10,3 +10,17 @@
     width: 85%;
     background-image: url( https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/slices/anim-u-fill-skyblue.svg)
 }
+.MacAddress {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    bottom:600px;
+    right:250px;
+}
+.titleMAC{
+    font-family: MetricHPEXS;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+}
