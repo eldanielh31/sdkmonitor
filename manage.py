@@ -27,5 +27,5 @@ def main():
 
 
 if __name__ == '__main__':
-    Thread(target=thread).start()
+    #Thread(target=thread).start()
     main()
