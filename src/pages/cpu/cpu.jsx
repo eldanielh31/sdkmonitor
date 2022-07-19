@@ -20,7 +20,8 @@ function CustomTooltip({ active, payload, label }) {
   if (active) {
     return (
       <div className="tooltip">
-        <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4>
+        <h4>{label}</h4>
+        {/* <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4> */}
         <p>%{payload[0].value.toFixed(2)}</p>
       </div>
     );
@@ -36,6 +37,7 @@ function Cpu() {
 
   const [initialValue, setInitialValue] = useState(currentDate);
   const [finalValue, setFinalValue] = useState(nextDate);
+  const [data, setData] = useState([])
 
   const handleChangeInitial = (newValue) => {
     setInitialValue(newValue);
@@ -44,23 +46,24 @@ function Cpu() {
     setFinalValue(newValue);
   };
 
-  const data = [];
-  for (let num = 120; num >= 0; num--) {
-    data.push({
-      date: subDays(new Date(), num).toISOString().substr(0, 10),
-      value: 1 + Math.random(),
-    });
-  }
+  // for (let num = 120; num >= 0; num--) {
+  //   data.push({
+  //     time: subDays(new Date(), num).toISOString().substr(0, 10),
+  //     value: 1 + Math.random(),
+  //   });
+  // }
 
   const getData = async () => {
-    
     try {
       let date = `${initialValue.getUTCFullYear()}-${("0" + (initialValue.getMonth() + 1)).slice(-2)}-${initialValue.getUTCDate() - 1}`;
       let date2 = `${finalValue.getUTCFullYear()}-${("0" + (finalValue.getMonth() + 1)).slice(-2)}-${finalValue.getUTCDate() - 1}`;
       let finaldate = `${date}T${initialValue.getHours()}:${initialValue.getMinutes()}`;
       let finaldate2 = `${date2}T${finalValue.getHours()}:${finalValue.getMinutes()}`
       let fulldate = `${finaldate}|${finaldate2}`
-      const res = await publicRequest.get(`/cpu/${fulldate}/`)
+      // const res = await publicRequest.get(`/cpu/${fulldate}/`)
+      const res = await publicRequest.get('/cpu/2022-07-16T17:56|2022-07-17T12:50/')
+      setData(res.data)
+      console.log(res.data)
 
     } catch (error) {
       console.log(error)
@@ -75,7 +78,7 @@ function Cpu() {
         <div className='containerTopCpu'>
           <h1 className='titleCPU'>CPU</h1>
         </div>
-
+        <button onClick={getData}>Get Data</button>
         <div className='containerChart'>
           <ResponsiveContainer width="100%" height={700}>
             <AreaChart data={data}>
@@ -89,7 +92,7 @@ function Cpu() {
               <Area dataKey="value" stroke="#e25a24" fill="url(#color)" />
 
               <XAxis
-                dataKey="date"
+                dataKey="time"
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={(str) => {
@@ -109,7 +112,8 @@ function Cpu() {
                 tickFormatter={(number) => `%${number.toFixed(2)}`}
               />
 
-              <Tooltip content={<CustomTooltip />} />
+              {/* <Tooltip content={<CustomTooltip />} /> */}
+              <Tooltip/>
 
               <CartesianGrid opacity={0.1} vertical={false} />
             </AreaChart>
@@ -137,8 +141,6 @@ function Cpu() {
             </LocalizationProvider>
           </div>
         </div>
-        
-
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ function Login() {
     const handleLogin = () => {
         dispatch(loginStart());
         try {
-            dispatch(loginSuccess({username, password}))
+            dispatch(loginSuccess({ip, username, password}))
         } catch (error) {
             dispatch(loginFailure())
             setTextError("Algo salió mal")
