@@ -24,7 +24,7 @@ function Sidebar() {
     return (
         <div className="Sidebar">
             <center>
-                <img className='imgSideBar' src={URL = 'https://img2.storyblok.com/450x233/smart/filters:quality(100)/f/70749/450x233/eba2433f96/aruba_hp_lockup_reversed.png'} alt="" width="82%" />
+                <img className='imgSideBar' src={'https://img2.storyblok.com/450x233/smart/filters:quality(100)/f/70749/450x233/eba2433f96/aruba_hp_lockup_reversed.png'} alt="" width="82%" />
             </center>
             <ul className="SidebarList">
                 {SidebarData.map((val, key) => {
