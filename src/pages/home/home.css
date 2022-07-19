@@ -16,21 +16,33 @@
    
 
 }
+
+.containerlogohome {
+
+  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  right: 11%;
+}
+
+
 .containerHOME {
     flex: 1;
-    margin: 0em 1em 0em 1em;
-    width: 85%;
+    width: 100%;
     position: relative;
+    background-image: url(https://img.freepik.com/free-photo/beautiful-shot-sea-with-mountain-distance-clear-sky_181624-2248.jpg?w=2000)
 }
 
 .Titulo1 {
   font-family: MetricHPEXS1;
+  width: 100%;
   font-weight: normal;
   font-size: 45px;
   letter-spacing: 0.07mm;
   text-align: center;
   position: relative;
   bottom: -450px;
+  color: rgb(100,101,105);
 }
 
 .Titulo2 {
@@ -40,6 +52,7 @@
   text-align: center;
   position: relative;
   bottom: -480px;
+  color: rgb(100,101,105);
 }
 
 .logohome{

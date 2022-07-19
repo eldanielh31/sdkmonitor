@@ -7,10 +7,15 @@ function Home() {
     <div className='pageHOME'>
       <Sidebar />
       <div className='containerHOME'>
+
+        <dic className='containerlogohome'>
+          
+          <img className='logohome' src={URL='https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba_hp_lockup_140x68-01.svg'} alt=""  />
+        </dic>
         
-        <div className ='Titulo1'>Bienvenido al SDK Monitor</div>
+        <div className ='Titulo1'>SDK Monitor</div>
         
-        <div className='Titulo2'>Utilice la barra lateral para ingresar a las estadísticas actuales del switch</div>     
+        <div className='Titulo2'>"Creando conexiones que impulsen a las empresas y al mundo."</div>     
 
       </div>
       
