@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { setMacFailure, setMacStart, setMacSuccess } from '../../redux/macRedux';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userRedux';
+import { publicRequest } from '../../requestMethods';
 import "./login.css"
 
 function Login() {
@@ -11,12 +13,16 @@ function Login() {
     const [ip, setIp] = useState("");
     const dispatch = useDispatch();
 
-    const handleLogin = () => {
+    const handleLogin = async() => {
+        dispatch(setMacStart());
         dispatch(loginStart());
         try {
             dispatch(loginSuccess({ip, username, password}))
+            const resMac = await publicRequest.get('mactable/')
+            dispatch(setMacSuccess(resMac.data))
         } catch (error) {
             dispatch(loginFailure())
+            dispatch(setMacFailure())
             setTextError("Algo salió mal")
         }
     };

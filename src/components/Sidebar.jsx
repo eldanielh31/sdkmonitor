@@ -5,6 +5,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUserFailure, deleteUserStart, deleteUserSuccess } from '../redux/userRedux';
+import { deleteAllMacSuccess } from '../redux/macRedux';
 function Sidebar() {
 
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function Sidebar() {
         dispatch(deleteUserStart());
         try {
             dispatch(deleteUserSuccess())
+            dispatch(deleteAllMacSuccess())
             navigate('/login')
         } catch (error) {
             dispatch(deleteUserFailure())

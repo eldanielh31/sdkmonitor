@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-
+import { DataGrid } from '@mui/x-data-grid'
 import "./tableMac.css"
+import { useSelector } from "react-redux";
 
-var data = require('../../data.json');
 var MacsData =[]
 
 function CreateDate_TableMac (){
+
+  const data = useSelector(state => state.mac.macs)
+
   var MacData = {}
   for (let i = 0; i < data.length; i++) {
     MacData.id = ((i+1));

@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import { orange,cyan } from '@mui/material/colors';
+import { useSelector } from 'react-redux/es/exports';
 
 const Item = styled(Paper)(({ theme }) => ({
     maxWidth:300,
@@ -20,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function MacAddress(props) {
 
-    const data = require('../../data.json');
+    const data = useSelector(state => state.mac.macs);
 
     const macList = props.mac.split(',').map(item => {return parseInt(item, 10)})
     const filteredMac = data.filter(i => JSON.stringify(i.mac) === JSON.stringify(macList))[0]
