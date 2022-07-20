@@ -56,8 +56,8 @@
 }
 
 .logohome{
-  height: 250px;
-  position:absolute;
+  max-height: 250px;
+  position:fixed;
   bottom:325px;
-  right:250px;
+  
 }
