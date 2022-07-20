@@ -8,14 +8,23 @@ function Home() {
       <Sidebar />
       <div className='containerHOME'>
 
-        <dic className='containerlogohome'>
+        <div className='fondohome'></div>
+
+        <div className='containerlogohome'>
           
-          <img className='logohome' src={URL='https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba_hp_lockup_140x68-01.svg'} alt=""  />
-        </dic>
+        <img className='logohome' src={'https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba-logo-small_136x35.svg'} alt=""   />
+        </div>
         
-        <div className ='Titulo1'>SDK Monitor</div>
+        <div className ='Titulo1'>
+          SDK Monitor
+          
+        </div>
         
-        <div className='Titulo2'>"Creando conexiones que impulsen a las empresas y al mundo."</div>     
+        <div className='Titulo2'>
+          
+          "Creando conexiones que impulsen a las empresas y al mundo."
+          
+        </div>     
 
       </div>
       
