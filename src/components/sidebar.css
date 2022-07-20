@@ -50,7 +50,8 @@
 }
 
 .SidebarList #active:hover {
-    color: white;
+    background-color: white;
+    color: rgb(222, 117, 6);
 }
 
 .row #icon {

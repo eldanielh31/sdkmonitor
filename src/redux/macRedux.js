@@ -10,15 +10,15 @@ export const macSlice = createSlice({
     },
     reducers: {
         //GET ALL
-        getMacStart: (state)=>{
+        setMacStart: (state)=>{
             state.isFetching = true;
             state.error = false;
         },
-        getMacSuccess: (state, action)=>{
+        setMacSuccess: (state, action)=>{
             state.isFetching = false;
             state.macs = action.payload;
         },
-        getMacFailure: (state)=>{
+        setMacFailure: (state)=>{
             state.isFetching = false;
             state.error = true;
         },
@@ -33,6 +33,10 @@ export const macSlice = createSlice({
                 state.macs.findIndex((item)=> item._id === action.payload),
                 1
             );
+        },
+        deleteAllMacSuccess: (state, action) => {
+            state.isFetching = false;
+            state.macs = [];
         },
         deleteMacFailure: (state)=>{
             state.isFetching = false;
@@ -51,25 +55,12 @@ export const macSlice = createSlice({
             state.isFetching = false;
             state.error = true;
         },
-        //ADD
-        addMacStart: (state)=>{
-            state.isFetching = true;
-            state.error = false;
-        },
-        addMacSuccess: (state, action)=>{
-            state.isFetching = false;
-            state.macs.push(action.payload);
-        },
-        addMacFailure: (state)=>{
-            state.isFetching = false;
-            state.error = true;
-        }
     },
 });
 
 export const {
-    getMacStart, getMacSuccess, getMacFailure, 
-    deleteMacStart, deleteMacSuccess, deleteMacFailure,
+    setMacStart, setMacSuccess, setMacFailure, 
+    deleteMacStart, deleteMacSuccess, deleteMacFailure, deleteAllMacSuccess,
     updateMacFailure, updateMacStart, updateMacSuccess,
     addMacFailure, addMacStart, addMacSuccess,
 } = macSlice.actions;
