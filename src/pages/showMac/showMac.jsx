@@ -8,8 +8,9 @@ function ShowMac() {
     const location = useLocation()
     const MacAddressLocation = location.pathname.split("/")[2];
     const replace =/,/g
-    const macAddress = MacAddressLocation.replace(replace, '-')
-    console.log(MacAddressLocation)
+    const macAddress = MacAddressLocation.replace(replace, ':')
+    console.log(macAddress)
+  
 
   return (
     <div className='pageSHOWMAC'>

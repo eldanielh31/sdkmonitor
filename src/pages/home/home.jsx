@@ -8,10 +8,10 @@ function Home() {
       <Sidebar />
       <div className='containerHOME'>
 
-        <dic className='containerlogohome'>
+        <div className='containerlogohome'>
           
           <img className='logohome' src={'https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba_hp_lockup_140x68-01.svg'} alt=""  />
-        </dic>
+        </div>
         
         <div className ='Titulo1'>SDK Monitor</div>
         
