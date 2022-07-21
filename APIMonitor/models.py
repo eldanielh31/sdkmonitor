@@ -1,38 +1,25 @@
 from datetime import date
-import psutil
 from .modules import level_up_mocking_script
 import json
+from datetime import datetime, timedelta
 
 # Create your models here.
 
 class SystemUsage:
 
+
     def filterData(entry, dicc):
-        entrada1 = entry.split('|')[0]
-        date1 = entrada1.split('T')[0]
-        time1 = entrada1.split('T')[1]
-        entrada2 = entry.split('|')[1]
-        date2 = entrada2.split('T')[0]
-        time2 = entrada2.split('T')[1]
+        dateObj1 = datetime.strptime(entry.split('|')[0], '%Y-%m-%dT%H:%M')
+        dateObj2 = datetime.strptime(entry.split('|')[1], '%Y-%m-%dT%H:%M')
 
-        inside = False
-        insideTime = False
-        dataToSend = []
-        for k, v in dicc.items():
-            if k == date1:
-                inside = True
-
-            if inside:
-                for t, u in v.items():
-                    if t == time1:
-                        insideTime = True
-                    if insideTime:
-                        dataToSend += u
-                    if t == time2:
-                        insideTime = False
-            if k == date2:
-                inside = False
-        return dataToSend
+        finalList = []
+        while(dateObj1 <= dateObj2):
+            if(dateObj1.strftime('%Y-%m-%d') in dicc):
+                diccMinutes = dicc[dateObj1.strftime('%Y-%m-%d')]
+                if(dateObj1.strftime('%H:%M') in diccMinutes):
+                    finalList += diccMinutes[dateObj1.strftime('%H:%M')]
+            dateObj1 = dateObj1 + timedelta(minutes=1)
+        return finalList
 
     def getCPUPercent(dates):
         with open('cpudata.json', 'r') as f:
