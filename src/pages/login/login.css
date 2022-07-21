@@ -1,7 +1,15 @@
+@font-face {
+    font-family: MetricHPEXS;
+    src: url('../../components/recursos/MetricHPEXSLight-Regular.woff2')
+  }
+  
+  @font-face {
+    font-family: MetricHPEXS1;
+    src: url('../../components/recursos/MetricHPEXSBlack-Regular.woff2')
+  }
+  
 .errorLogin {
-    font-family: 'Open Sans',
-        Arial,
-        sans-serif;
+    font-family: MetricHPEXS1;
     font-weight: normal;
     font-size: 20px;
     margin-top: 10px;
@@ -9,9 +17,7 @@
 }
 
 .titleLogin {
-    font-family: 'Open Sans',
-        Arial,
-        sans-serif;
+    font-family: MetricHPEXS;
     font-weight: normal;
     font-size: 25px;
 }
@@ -75,9 +81,7 @@
 }
 
 .inputLogin {
-    font-family: 'Open Sans',
-        Arial,
-        sans-serif;
+    font-family: MetricHPEXS;
     border-radius: 10px;
     font-weight: normal;
     font-size: 20px;
@@ -96,9 +100,7 @@
 
 /* LABEL ======================================= */
 .labelLogin {
-    font-family: 'Open Sans',
-        Arial,
-        sans-serif;
+    font-family: MetricHPEXS;
     font-weight: normal;
     color: rgb(255,131,0);
     font-size: 18px;
@@ -163,6 +165,7 @@
 }
 
 .button-57 {
+    font-family: MetricHPEXS;
     margin-bottom: 10px;
     width: 20em;
     position: relative;
@@ -170,7 +173,7 @@
     border: 1px solid rgb(255,131,0);
     color: rgb(255,131,0);
     display: inline-block;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 15px;
     padding: 18px 18px 17px;
     text-decoration: none;
