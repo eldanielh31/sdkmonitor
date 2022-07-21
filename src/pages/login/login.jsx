@@ -28,8 +28,12 @@ function Login() {
     };
     return (
         <div className='containerLogin'>
+            <div className='fondologin'></div>
+            <div className='containerlogologin'>
+                <img className='logologin'src={'https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba-logo-small_136x35.svg'} alt=""   />
+            </div>
             <div className='wrapperLogin'>
-                <h1 className="titleLogin">Login</h1>
+                <h1 className="titleLogin">LOG IN</h1>
                 <form className="formLogin">
                     <div className="groupLogin">
                         <input type="text" className='inputLogin' onChange={e => setIp(e.target.value)} required />
@@ -56,8 +60,8 @@ function Login() {
 
                     <div className="groupLogin">
                         <button className="button-57" onClick={handleLogin}>
-                            <span className="text"> LOGIN </span>
-                            <span>OK.</span>
+                            <span className="text"> LOG IN </span>
+                            <span>OK</span>
                         </button>
                     </div>
 
