@@ -31,6 +31,7 @@ function Login() {
             <div className='fondologin'></div>
             <div className='containerlogologin'>
                 <img className='logologin'src={'https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba-logo-small_136x35.svg'} alt=""   />
+                <div className='sdkmonitor'>SDK MONITOR</div>
             </div>
             <div className='wrapperLogin'>
                 <h1 className="titleLogin">LOG IN</h1>

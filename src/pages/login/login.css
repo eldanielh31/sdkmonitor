@@ -59,6 +59,18 @@
     right: 31vw;
   }
 
+.sdkmonitor{
+    font-family: MetricHPEXS;
+    font-size: 2vw;
+    width:11.5vw;
+    margin: 0 auto;
+    position: absolute;
+    right: 0vw;
+    color: rgb(255,131,0);
+
+
+}
+
 
 .wrapperLogin {
     text-align: center;
@@ -86,8 +98,7 @@
     font-weight: normal;
     font-size: 20px;
     padding: 10px 10px 10px 5px;
-    display: block;
-    width: 95%;
+    width: 20vw;
     border: none;
     color: rgb(255,131,0);
     border-bottom: 1px solid rgb(255,131,0);
@@ -100,15 +111,14 @@
 
 /* LABEL ======================================= */
 .labelLogin {
-    font-family: MetricHPEXS;
-    font-weight: normal;
-    color: rgb(255,131,0);
-    font-size: 18px;
-    font-weight: normal;
     position: absolute;
+    font-family: MetricHPEXS;
+    color: rgb(255,131,0);
+    font-size: 20px;
+    font-weight: normal;
     pointer-events: none;
-    left: 5px;
-    top: 10px;
+    top: 0vh;
+    margin-left: -10.2vw;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -167,7 +177,7 @@
 .button-57 {
     font-family: MetricHPEXS;
     margin-bottom: 10px;
-    width: 20em;
+    width: 22vw;
     position: relative;
     overflow: hidden;
     border: 1px solid rgb(255,131,0);
