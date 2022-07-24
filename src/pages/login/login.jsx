@@ -13,11 +13,11 @@ function Login() {
     const [ip, setIp] = useState("");
     const dispatch = useDispatch();
 
-    const handleLogin = async() => {
+    const handleLogin = async () => {
         dispatch(setMacStart());
         dispatch(loginStart());
         try {
-            dispatch(loginSuccess({ip, username, password}))
+            dispatch(loginSuccess({ ip, username, password }))
             const resMac = await publicRequest.get('mactable/')
             dispatch(setMacSuccess(resMac.data))
         } catch (error) {
@@ -28,46 +28,50 @@ function Login() {
     };
     return (
         <div className='containerLogin'>
-            <div className='fondologin'></div>
-            <div className='containerlogologin'>
-                <img className='logologin'src={'https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba-logo-small_136x35.svg'} alt=""   />
-                <div className='sdkmonitor'>SDK MONITOR</div>
+            <div>
+
+                <div className='groupLogoLogin'>
+                    <img src='https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba-logo-small_136x35.svg' alt=''/>
+                    <h2 className='subtextLogoLogin'> SDK MONITOR</h2>
+                </div>
+
+                <div className='wrapperLogin'>
+                    <h1 className="titleLogin">LOGIN</h1>
+                    <form className="formLogin">
+                        <div className="groupLogin">
+                            <input type="text" className='inputLogin' onChange={e => setIp(e.target.value)} required />
+                            <span className="highlightLogin"></span>
+                            <span className="barLogin"></span>
+                            <label className='labelLogin'>IP</label>
+                        </div>
+
+                        <div className="groupLogin">
+                            <input type="text" className='inputLogin' onChange={e => setUsername(e.target.value)} required />
+                            <span className="highlightLogin"></span>
+                            <span className="barLogin"></span>
+                            <label className='labelLogin'>User</label>
+                        </div>
+
+                        <div className="groupLogin">
+                            <input type="password" className='inputLogin' onChange={e => setPassword(e.target.value)} required />
+                            <span className="highlightLogin"></span>
+                            <span className="barLogin"></span>
+                            <label className='labelLogin'>Password</label>
+                        </div>
+
+                        <span className='errorLogin'> {textError} </span>
+
+                        <div className="groupLogin">
+                            <button className="button-57" onClick={handleLogin}>
+                                <span className="text"> LOG IN </span>
+                                <span>OK</span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
-            <div className='wrapperLogin'>
-                <h1 className="titleLogin">LOG IN</h1>
-                <form className="formLogin">
-                    <div className="groupLogin">
-                        <input type="text" className='inputLogin' onChange={e => setIp(e.target.value)} required />
-                        <span className="highlightLogin"></span>
-                        <span className="barLogin"></span>
-                        <label className='labelLogin'>IP</label>
-                    </div>
 
-                    <div className="groupLogin">
-                        <input type="text" className='inputLogin' onChange={e => setUsername(e.target.value)} required />
-                        <span className="highlightLogin"></span>
-                        <span className="barLogin"></span>
-                        <label className='labelLogin'>User</label>
-                    </div>
-
-                    <div className="groupLogin">
-                        <input type="password" className='inputLogin' onChange={e => setPassword(e.target.value)} required />
-                        <span className="highlightLogin"></span>
-                        <span className="barLogin"></span>
-                        <label className='labelLogin'>Password</label>
-                    </div>
-
-                    <span className='errorLogin'> {textError} </span>
-
-                    <div className="groupLogin">
-                        <button className="button-57" onClick={handleLogin}>
-                            <span className="text"> LOG IN </span>
-                            <span>OK</span>
-                        </button>
-                    </div>
-
-                </form>
-            </div>
         </div>
     );
 };
