@@ -29,12 +29,10 @@ function Login() {
     return (
         <div className='containerLogin'>
             <div>
-
                 <div className='groupLogoLogin'>
                     <img src='https://www.arubanetworks.com/wp-content/themes/Aruba2015/images/aruba-logo-small_136x35.svg' alt=''/>
                     <h2 className='subtextLogoLogin'> SDK MONITOR</h2>
                 </div>
-
                 <div className='wrapperLogin'>
                     <h1 className="titleLogin">LOGIN</h1>
                     <form className="formLogin">
