@@ -1,15 +1,8 @@
-@font-face {
-    font-family: MetricHPEXS;
-    src: url('../../components/recursos/MetricHPEXSLight-Regular.woff2')
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap');
 
-@font-face {
-    font-family: MetricHPEXS1;
-    src: url('../../components/recursos/MetricHPEXSBlack-Regular.woff2')
-}
 
 .errorLogin {
-    font-family: MetricHPEXS1;
+    font-family: 'Quicksand', sans-serif;  width: 100%;
     font-weight: normal;
     font-size: 20px;
     margin-top: 10px;
@@ -23,13 +16,13 @@
 
 .subtextLogoLogin{
     margin: 0;
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;  width: 100%;
     color: rgb(255, 131, 0);
 }
 
 .titleLogin {
     margin: 0;
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;  width: 100%;
     font-weight: normal;
     font-size: 25px;
 }
@@ -72,7 +65,7 @@
 }
 
 .inputLogin {
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;
     font-weight: normal;
     font-size: 20px;
     padding: 10px 10px 10px 5px;
@@ -90,7 +83,7 @@
 /* LABEL ======================================= */
 .labelLogin {
     position: absolute;
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;
     color: rgb(255, 131, 0);
     font-size: 20px;
     font-weight: normal;
@@ -153,7 +146,7 @@
 }
 
 .button-57 {
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;  width: 100%;
     margin-bottom: 10px;
     width: 17vw;
     position: relative;

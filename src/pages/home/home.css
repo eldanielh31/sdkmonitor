@@ -1,18 +1,10 @@
-@font-face {
-  font-family: MetricHPEXS;
-  src: url('../../components/recursos/MetricHPEXSLight-Regular.woff2')
-}
-
-@font-face {
-  font-family: MetricHPEXS1;
-  src: url('../../components/recursos/MetricHPEXSBlack-Regular.woff2')
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap');
 
 .pageHOME {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
    
 
 }
@@ -47,8 +39,7 @@
 
 
 .Titulo1 {
-  font-family: MetricHPEXS1;
-  width: 100%;
+  font-family: 'Quicksand', sans-serif;  width: 100%;
   font-weight: normal;
   font-size: 60px;
   letter-spacing: 0.07mm;
@@ -60,7 +51,7 @@
 }
 
 .Titulo2 {
-  font-family: MetricHPEXS;
+  font-family: 'Quicksand', sans-serif;  width: 100%;
   width: 100%;
   font-weight: normal;
   font-size: 30px;
