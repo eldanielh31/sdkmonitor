@@ -9,7 +9,6 @@ var MacsData =[]
 function CreateDate_TableMac (){
 
   const data = useSelector(state => state.mac.macs)
-  const replace =/,/g
   var MacData = {}
   for (let i = 0; i < data.length; i++) {
 
@@ -20,13 +19,11 @@ function CreateDate_TableMac (){
     MacData.MAC = MacData.MAC + ':' + data[i].mac[3].toString(16).toUpperCase();
     MacData.MAC = MacData.MAC + ':' + data[i].mac[4].toString(16).toUpperCase();
     MacData.MAC = MacData.MAC + ':' + data[i].mac[5].toString(16).toUpperCase();
-    MacData.MAC = MacData.MAC.replace(replace, ':')
     MacData.VLAN =  (data[i].vlan_number);
     MacData.Vport =  (data[i].vport.value);
     MacData.PuertoDST = (data[i].precedence_dst_port);
     MacData.Breakpoint = 'x';
     MacsData.push({...MacData});
-    console.log (MacData.MAC)
   }
 }
 
