@@ -1,7 +1,4 @@
-@font-face {
-    font-family: MetricHPEXS;
-    src: url('./recursos/MetricHPEXS-Regular.woff2')
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap');
 
 .Sidebar {
     height: 100%;
@@ -62,7 +59,7 @@
 }
 
 .row #title {
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;  width: 100%;
     letter-spacing: 0.07mm;
     font-style: normal;
     font-weight: normal;
@@ -98,7 +95,7 @@
 }
 
 .rowLogout #title {
-    font-family: MetricHPEXS;
+    font-family: 'Quicksand', sans-serif;  width: 100%;
     letter-spacing: 0.07mm;
     font-style: normal;
     font-weight: normal;
