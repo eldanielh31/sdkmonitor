@@ -5,18 +5,6 @@ import "./home.css"
 
 function Home() {
 
-  fetch('http://192.168.18.192')
-    .then((response) => {
-      if (response.status === 200) {
-        console.log('success');
-      } else {
-        console.log('error');
-      }
-    })
-    .catch((error) => {
-      console.log('network error: ' + error);
-    })
-
   return (
     <div className='pageHOME'>
       <Sidebar />
