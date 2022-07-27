@@ -1,8 +1,4 @@
 .titleMAC {
-  font-family: 'Open Sans',
-    Arial,
-    sans-serif;
-  font-weight: normal;
 }
 
 .pageMAC {
@@ -10,6 +6,10 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
+}
+
+.containerTopMAC{
+  flex:1
 }
 
 .containerMAC {

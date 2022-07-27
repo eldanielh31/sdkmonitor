@@ -1,15 +1,10 @@
 .containerTopCpu {
     flex: 1;
-
     /* padding: 0px 0px 20px 10px; */
 }
 
 .titleCPU {
     
-    font-family: 'Open Sans',
-        Arial,
-        sans-serif;
-    font-weight: normal;
 }
 
 .containerCPU {

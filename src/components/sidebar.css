@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap');
-
 .Sidebar {
     height: 100%;
     width: 14%;
@@ -30,7 +28,6 @@
     color: white;
     justify-content: center;
     align-items: center;
-    font-family: MetricHPEXS;
 }
 
 .SidebarList .row:hover {
@@ -38,8 +35,6 @@
     background-color: white;
     color: rgb(222, 117, 6);
 }
-
-
 
 .SidebarList #active {
     background-color: white;
@@ -52,18 +47,14 @@
 }
 
 .row #icon {
-
     flex: 20%;
     display: grid;
     place-items: center;
 }
 
 .row #title {
-    font-family: 'Quicksand', sans-serif;  width: 100%;
+    width: 100%;
     letter-spacing: 0.07mm;
-    font-style: normal;
-    font-weight: normal;
-    font-size: large;
     flex: 40%;
 }
 
@@ -78,7 +69,6 @@
     flex-direction: row;
     color: white;
     align-items: center;
-    font-family: MetricHPEXS;
 }
 
 .rowLogout:hover {
@@ -88,18 +78,13 @@
 }
 
 .rowLogout #icon {
-
     flex: 20%;
     display: grid;
     place-items: center;
 }
 
 .rowLogout #title {
-    font-family: 'Quicksand', sans-serif;  width: 100%;
+    width: 100%;
     letter-spacing: 0.07mm;
-    font-style: normal;
-    font-weight: normal;
-    font-size: large;
     flex: 40%;
-
 }
