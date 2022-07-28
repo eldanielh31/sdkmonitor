@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap');
-
-
 .errorLogin {
-    font-family: 'Quicksand', sans-serif;  width: 100%;
-    font-weight: normal;
     font-size: 20px;
     margin-top: 10px;
     color: crimson;
@@ -16,13 +11,12 @@
 
 .subtextLogoLogin{
     margin: 0;
-    font-family: 'Quicksand', sans-serif;  width: 100%;
     color: rgb(255, 131, 0);
 }
 
 .titleLogin {
     margin: 0;
-    font-family: 'Quicksand', sans-serif;  width: 100%;
+
     font-weight: normal;
     font-size: 25px;
 }
@@ -146,7 +140,6 @@
 }
 
 .button-57 {
-    font-family: 'Quicksand', sans-serif;  width: 100%;
     margin-bottom: 10px;
     width: 17vw;
     position: relative;

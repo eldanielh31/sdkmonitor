@@ -8,8 +8,8 @@ function Mac() {
     <div className='pageMAC'>
       <Sidebar />
       <div className='containerMAC'>
-        <div>
-          <h1 className='titleMAC'>MAC Table</h1>
+        <div className='containerTopMAC'>
+          <h1>MAC Table</h1>
         </div>
        <TableMacs/>
       </div>
