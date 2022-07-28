@@ -2,19 +2,11 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from threading import Thread
-from time import sleep
-from CPUandMemory import loadJson, mainCpuMemory
 
-def thread():
-    loadJson()
-    while True:
-        mainCpuMemory()
-        sleep(5)
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'SDKmonitorAPI.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'localsdkmonitor.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -27,5 +19,4 @@ def main():
 
 
 if __name__ == '__main__':
-    #Thread(target=thread).start()
     main()

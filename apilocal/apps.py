@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ApimonitorConfig(AppConfig):
+class ApilocalConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'APIMonitor'
+    name = 'apilocal'

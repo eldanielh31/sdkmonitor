@@ -2,18 +2,8 @@
 import os
 switch_ip = "10.100.21.190"
 current_pc_ip = "10.0.12.171"
-ipEnter = ""
 #boolean if connect to ip
 reachable = True if os.system(f'ping -c 1 {switch_ip}') == 0 else False
-
-#function return boolean ip connected
-def isIPConnect(ip):
-    global ipEnter
-    if(os.system(f'ping -c 1 {ip}') == 0):
-        ipEnter = ip
-        return True
-    else:
-        return False
 
 # Create a SSH bash connection to the host
 from pexpect import pxssh
@@ -22,10 +12,6 @@ s = pxssh.pxssh(options={
                     "UserKnownHostsFile": "/dev/null"})
 s.PROMPT = '6300.*($|#)'
 s.login(switch_ip, "admin", "admin", auto_prompt_reset=False)
-
-#function connect user
-def connectUser(user, password):
-    s.login(ipEnter, user, password, auto_prompt_reset=False)
 
 # Send a simple command
 s.sendline("show version")
