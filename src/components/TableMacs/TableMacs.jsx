@@ -67,13 +67,13 @@ export default function TableMacs() {
 
   return (
     CreateDate_TableMac(),
-    <div style={{ height: 685, width: '100%' }}>
+    <div className= 'TableMacs' style={{ height: 685, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
         getRowId={(row) => row.MAC}
-        pageSize={11}
-        rowsPerPageOptions={[11]}
+        //pageSize={11}
+        //rowsPerPageOptions={[11]}
       />
     </div>
   );
