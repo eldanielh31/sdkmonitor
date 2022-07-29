@@ -34,7 +34,7 @@ s.sendline("sdk_monitor_switch_server.bin --port 1999")
 s.prompt()
 print(s.before)
 
-# Notice that the above command is failing, because the
+# Notice that the above command is failing, because tShe
 # binary doesn't exist
 """
 Commands to create a new interface to talk to the SDK
