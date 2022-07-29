@@ -4,6 +4,12 @@
     color: crimson;
 }
 
+.loadingLogin {
+    font-size: 20px;
+    margin-top: 10px;
+    color: mediumseagreen;
+}
+
 .groupLogoLogin{
     text-align: right;
     padding-bottom: 1em;

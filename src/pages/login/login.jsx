@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { setMacFailure, setMacStart, setMacSuccess } from '../../redux/macRedux';
+import { useDispatch, useSelector } from 'react-redux';
+// import { setMacFailure, setMacStart, setMacSuccess } from '../../redux/macRedux';
+// import axios from 'axios';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userRedux';
 import { publicRequest } from '../../requestMethods';
 import "./login.css"
@@ -12,20 +13,45 @@ function Login() {
     const [password, setPassword] = useState("");
     const [ip, setIp] = useState("");
     const dispatch = useDispatch();
+    const {isFetching} = useSelector(state=>state.user)
 
     const handleLogin = async () => {
-        dispatch(setMacStart());
-        dispatch(loginStart());
         try {
-            dispatch(loginSuccess({ ip, username, password }))
-            const resMac = await publicRequest.get('mactable/')
-            dispatch(setMacSuccess(resMac.data))
+            let user = { ip, username, password }
+            const resIP = await publicRequest.get(`ip/${ip}`)
+            if(resIP.data.isCorrect){
+                dispatch(loginStart());
+                try {
+                    const resLogin = await publicRequest.post('login/', user)
+                    if (resLogin.data.isCorrect){
+                        // dispatch(setMacStart())
+
+                        // const resMac = await axios.get(`http://${ip}/api/mactable/`)
+                        // dispatch(setMacSuccess(resMac.data))
+
+                        dispatch(loginSuccess({ ip, username, password }))
+                        
+
+                    }else{
+                        dispatch(loginFailure())
+                        // dispatch(setMacFailure())
+                        setTextError("Could not connect the user")
+                    }
+                } catch (error) {
+                    setTextError("Could not read the user")
+                    dispatch(loginFailure())
+                }
+                
+            }else{
+                setTextError("Could not connect to the IP")
+            }
+            
+
         } catch (error) {
-            dispatch(loginFailure())
-            dispatch(setMacFailure())
-            setTextError("Algo salió mal")
+            setTextError("Could not read the IP")
         }
     };
+
     return (
         <div className='containerLogin'>
             <div>
@@ -37,21 +63,21 @@ function Login() {
                     <h1 className="titleLogin">LOGIN</h1>
                     <form className="formLogin">
                         <div className="groupLogin">
-                            <input type="text" className='inputLogin' onChange={e => setIp(e.target.value)} required />
+                            <input type="text" className='inputLogin' onChange={e => setIp(e.target.value)} />
                             <span className="highlightLogin"></span>
                             <span className="barLogin"></span>
                             <label className='labelLogin'>IP</label>
                         </div>
 
                         <div className="groupLogin">
-                            <input type="text" className='inputLogin' onChange={e => setUsername(e.target.value)} required />
+                            <input type="text" className='inputLogin' onChange={e => setUsername(e.target.value)} />
                             <span className="highlightLogin"></span>
                             <span className="barLogin"></span>
                             <label className='labelLogin'>User</label>
                         </div>
 
                         <div className="groupLogin">
-                            <input type="password" className='inputLogin' onChange={e => setPassword(e.target.value)} required />
+                            <input type="password" className='inputLogin' onChange={e => setPassword(e.target.value)} />
                             <span className="highlightLogin"></span>
                             <span className="barLogin"></span>
                             <label className='labelLogin'>Password</label>
@@ -59,14 +85,15 @@ function Login() {
 
                         <span className='errorLogin'> {textError} </span>
 
-                        <div className="groupLogin">
-                            <button className="button-57" onClick={handleLogin}>
-                                <span className="text"> LOG IN </span>
-                                <span>OK</span>
-                            </button>
-                        </div>
-
+                        {isFetching && <span className='loadingLogin'> Loading... </span>}
                     </form>
+                    <div className="groupLogin">
+                        <button className="button-57" onClick={handleLogin} disabled={isFetching}>
+                            <span className="text"> LOG IN </span>
+                            <span>OK</span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
