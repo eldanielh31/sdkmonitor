@@ -37,8 +37,8 @@ const columns = [
 export default function TableMacs() {
   const data = useSelector(state => state.mac.macs)
   return (
-    // CreateDate_TableMac(),
-    <div style={{ height: 685, width: '100%' }}>
+    CreateDate_TableMac(),
+    <div className= 'TableMacs' style={{ height: 685, width: '100%' }}>
       <DataGrid
         rows={data}
         columns={columns}
