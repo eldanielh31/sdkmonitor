@@ -6,8 +6,7 @@ from datetime import datetime, timedelta
 # Create your models here.
 
 class SystemUsage:
-
-
+    
     def filterData(entry, dicc):
         dateObj1 = datetime.strptime(entry.split('|')[0], '%Y-%m-%dT%H:%M')
         dateObj2 = datetime.strptime(entry.split('|')[1], '%Y-%m-%dT%H:%M')

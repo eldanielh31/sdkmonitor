@@ -23,18 +23,3 @@ class MemoryView(View):
         response = JsonResponse(SystemUsage.getMemoryPercent(pk), safe=False)
         response["Access-Control-Allow-Origin"] = "*"
         return response
-
-class IPView(View):
-    def get(self, request, pk):
-        response = JsonResponse( {
-            "id" : pk,
-            # "isCorrect" : level_up_connection.isIPConnect(pk)
-            "isCorrect" : True
-        })
-        response["Access-Control-Allow-Origin"] = "*"
-        return response
-
-class UserView(View):
-    def post(self, request):
-        data = json.loads(request.body)
-        return JsonResponse(data)
