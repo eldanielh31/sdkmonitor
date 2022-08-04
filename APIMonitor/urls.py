@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CPUView, IPView, MacListView, MemoryView, UserView
+from .views import CPUView, MacListView, MemoryView
 
 urlpatterns = [
     path('mactable/', MacListView.as_view(), name="mac_list"),
