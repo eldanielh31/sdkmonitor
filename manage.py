@@ -4,10 +4,9 @@ import os
 import sys
 from threading import Thread
 from time import sleep
-from CPUandMemory import loadJson, mainCpuMemory
+from CPUandMemory import mainCpuMemory
 
 def thread():
-    loadJson()
     while True:
         mainCpuMemory()
         sleep(5)
@@ -27,5 +26,5 @@ def main():
 
 
 if __name__ == '__main__':
-    #Thread(target=thread).start()
+    Thread(target=thread).start()
     main()

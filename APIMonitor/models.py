@@ -54,7 +54,13 @@ class MacTable:
 
         macList = []
         primitiveTypes = (int, str, bool, float, list, tuple, dict, set)
+        # for mac in l2_entries_info:
+        #     macList.append({key: value if isinstance(value, primitiveTypes) else vars(value) for key, value in mac.__dict__.items() if not key.startswith('__')
+        #         and not callable(key)})
         for mac in l2_entries_info:
-            macList.append({key: value if isinstance(value, primitiveTypes) else vars(value) for key, value in mac.__dict__.items() if not key.startswith('__')
-                and not callable(key)})
+            temp = {}
+            for x in mac:
+                temp[x[0]] = x[1]
+            macList.append(temp)    
+
         return macList

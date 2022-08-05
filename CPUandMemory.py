@@ -24,21 +24,6 @@ def saveJson():
     finally:
         print('Finalizó el guardado')
 
-def loadJson():
-    global diccMemory
-    global diccCPU
-    try:
-        with open('cpudata.json', 'r') as f:
-            diccCPU = json.load(f)
-            f.close()
-        with open('memorydata.json', 'r') as f:
-            diccMemory = json.load(f)
-            f.close()
-    except:
-        print("Error al cargar") 
-    finally:
-        print('Finalizó la carga')
-
 def getDate():
     return datetime.today().strftime("%Y-%m-%d")
 
