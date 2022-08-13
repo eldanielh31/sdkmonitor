@@ -13,9 +13,10 @@ import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useState } from "react";
-import { publicRequest } from "../../requestMethods";
 import { useEffect } from "react";
 import './chart.css'
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 
@@ -37,6 +38,8 @@ function CustomTooltip({ active, payload, label }) {
 
 function Chart(props) {
 
+    const { ip } = useSelector(state => state.user.currentUser)
+
     const [custom, setCustom] = useState(false);
 
     const [initialValue, setInitialValue] = useState();
@@ -51,7 +54,7 @@ function Chart(props) {
             let date = `${format(inicial, "yyyy-MM-dd")}T${format(inicial, "HH:mm")}`;
             let date2 = `${format(final, "yyyy-MM-dd")}T${format(final, "HH:mm")}`;
             let fulldate = `${date}|${date2}`
-            const res = await publicRequest.get(`/${props.type}/${fulldate}/`)
+            const res = await axios.get(`http://${ip}:8000/api/${props.type}/${fulldate}/`)
             setData(res.data)
         } catch (error) {
             console.log(error);
@@ -76,8 +79,9 @@ function Chart(props) {
 
             let date = `${format(currentDate, "yyyy-MM-dd")}T${format(currentDate, "HH:mm")}`;
             let date2 = `${format(nextDate, "yyyy-MM-dd")}T${format(nextDate, "HH:mm")}`;
-            let fulldate = `${date2}|${date}`
-            const res = await publicRequest.get(`/${props.type}/${fulldate}/`)
+            let fulldate = `${date}|${date2}`
+            console.log(`http://${ip}:8000/api/${props.type}/${fulldate}/`)
+            const res = await axios.get(`http://${ip}:8000/api/${props.type}/${fulldate}/`)
             setData(res.data)
         } catch (error) {
             console.log(error)
@@ -94,7 +98,8 @@ function Chart(props) {
             let date = `${format(currentDate, "yyyy-MM-dd")}T${format(currentDate, "HH:mm")}`;
             let date2 = `${format(nextDate, "yyyy-MM-dd")}T${format(nextDate, "HH:mm")}`;
             let fulldate = `${date2}|${date}`
-            const res = await publicRequest.get(`/${props.type}/${fulldate}/`)
+            // const res = await publicRequest.get(`/${props.type}/${fulldate}/`)
+            const res = await axios.get(`http://${ip}:8000/api/${props.type}/${fulldate}/`)
             setData(res.data)
         } catch (error) {
             console.log(error)
@@ -104,11 +109,12 @@ function Chart(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await publicRequest.get(`/${props.type}/2022-07-16T17:56|2022-07-17T12:50/`)
+            // const res = await publicRequest.get(`/${props.type}/2022-07-16T17:56|2022-07-17T12:50/`)
+            const res = await axios.get(`http://${ip}:8000/api/${props.type}/2022-07-16T17:56|2022-07-17T12:50/`)
             setData(res.data)
         }
         fetchData();
-    }, [setData, props.type]);
+    }, [setData, props.type, ip]);
 
     return (
         <div>
