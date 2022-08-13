@@ -1,21 +1,34 @@
-import os
 from pexpect import pxssh
 
-switch_ip = '192.168.18.192'
 
-# reachable = True if os.system(f'ping -c 1 {switch_ip}') == 0 else False
+class SecureShell:
+    def __init__(self):
+        self.shell = pxssh.pxssh(options={
+            "StrictHostKeyChecking": "no",
+            "UserKnownHostsFile": "/dev/null"})
+        self.shell.PROMPT = '6300.*($|#)'
+    
+    def login(self, hostname, username, password):
+        try:
+            self.shell.login(hostname, username, password,
+                             auto_prompt_reset=False)
+            self.hostname = hostname
+            self.username = username
+            self.password = password
+            return True
+        except:
+            return False
+    
+    def sendline(self, line):
+        self.shell.login(self.hostname, self.username,
+                         self.password, auto_prompt_reset=False)
+        self.shell.sendline(line)
+        self.shell.prompt()
+        print(self.shell.before)
+    
+    def wait(self):
+        self.shell.wait()
 
-s = pxssh.pxssh(options={
-    "StrictHostKeyChecking": "no",
-    "UserKnownHostsFile": "/dev/null"})
-s.PROMPT = '6300.*($|#)'
-try:
-    s.login(switch_ip, "admin", "", auto_prompt_reset=False)
-
-    # Send a simple command
-    s.sendline("show version")
-    s.prompt()
-    print(s.before)
-
-except:
-    print("Error")
+shell = SecureShell()
+print(shell.login("192.168.18.192", 'admin', ''))
+shell.sendline('show version')
