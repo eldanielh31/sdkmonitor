@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
 .pageHOME {
   width: 100vw;
   height: 100vh;
@@ -30,6 +33,7 @@
 }
 
 .Titulo1 {
+  font-family:'Open Sans', sans-serif;
   font-weight: normal;
   font-size: 60px;
   letter-spacing: 0.07mm;
@@ -41,6 +45,7 @@
 }
 
 .Titulo2 {
+  font-family:'Open Sans', sans-serif;
   width: 100%;
   font-weight: normal;
   font-size: 30px;
