@@ -10,7 +10,7 @@ function Home() {
       <Sidebar />
       <div className='containerHOME'>
 
-        <div className='fondohome'></div>
+        <div className='fondohome'/>
 
         <div className='containerlogohome'>
           
@@ -18,8 +18,9 @@ function Home() {
         </div>
         
         <div className ='Titulo1'>
-          SDK Monitor
-          
+          <h5>
+            SDK Monitor
+          </h5>
         </div>
         
         <div className='Titulo2'>

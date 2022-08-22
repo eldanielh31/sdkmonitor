@@ -1,3 +1,9 @@
+.TableMacs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .button-1 {
     margin: 8px;
     padding: 8px 12px;

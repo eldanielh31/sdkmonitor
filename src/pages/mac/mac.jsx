@@ -14,7 +14,7 @@ function Mac() {
 
   useEffect(() => {
     async function fetchData() {
-      const resMac = await axios.get(`http://${ip}:8000/api/mactable/`)
+      let resMac = await axios.get(`http://${ip}:8000/api/mactable/`)
       dispatch(setMacSuccess(resMac.data))
     }
     fetchData();
