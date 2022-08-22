@@ -52,7 +52,7 @@ class Login:
 
                 # Copy the python files from the server to the switch
             hostname = "daniel"
-            IPAddr = "192.168.18.230"
+            IPAddr = "192.168.1.100"
             hostpassword = '1234'
 
             #-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
@@ -70,14 +70,20 @@ class Login:
             s.sendline("cd sdkmonitor")
             s.prompt()
 
-            s.sendline('sudo easy_install-3.7 pip')
+            s.sendline("cd install/Django-3.2")
+            s.prompt()
+
+            s.sendline('sudo python3 setup.py build')
             s.prompt()
             print(s.before)
 
-            s.sendline('pip3 install django')
+            s.sendline('sudo python3 setup.py install')
             s.prompt()
             print(s.before)
 
+            s.sendline("cd ../../")
+            s.prompt()
+            
             s.sendline(
                 f'sudo systemd-run --description=sdkmonitor python3 /home/{username}/sdkmonitor/manage.py runserver 0.0.0.0:8000')
             s.prompt()
